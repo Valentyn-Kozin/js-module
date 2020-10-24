@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100vh;
+}
+ul {
+  list-style: none;
+}
+.homework {
+  min-height: 100vh;
+  padding: 5px;
+  background: #95a8f3
+    url(../img/kisspng-javascript-logo-html-clip-art-javascript-logo.png) bottom
+    right no-repeat;
+  padding: 15px;
+}

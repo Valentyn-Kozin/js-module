@@ -1,0 +1,24 @@
+$style: "homework-1";
+.#{$style} {
+  &__title {
+    text-align: center;
+    font-family: $roboto;
+    @include text(36px, 400, black);
+    margin-bottom: 40px;
+  }
+  &__list {
+    @include flex(center, center, row, wrap);
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+  &__btn {
+    height: 40px;
+    width: 70px;
+    font-family: $roboto;
+    @include text(16px, 400, black);
+    cursor: pointer;
+  }
+}

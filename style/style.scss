@@ -1,3 +1,5 @@
-body {
-  background-color: red;
-}
+@import "./common";
+@import "./vars";
+@import "./mixins";
+
+@import "./homework-1";
