@@ -142,9 +142,23 @@ btn_223.addEventListener('click', function () {
 var btn_224 = document.getElementById('task_22.4');
 btn_224.addEventListener('click', function () {
   var scircleRadius = prompt('Enter length of scircle radius');
-  alert("Area of the circle is ".concat(scircleRadius * scircleRadius * 3.14));
+  alert("Area of the circle is ".concat(scircleRadius * scircleRadius * Math.PI));
+}); //5. speed between cities
+
+var btn_225 = document.getElementById('task_22.5');
+btn_225.addEventListener('click', function () {
+  var distance = prompt("Enter distance between the sityes in kilomiters");
+  var time = prompt("Enter time you have to travel in hours");
+  alert("You need to go at a speed of ".concat(distance / time, " km per hour"));
+}); //6. currency converter
+
+var btn_226 = document.getElementById('task_22.6');
+btn_226.addEventListener('click', function () {
+  var exchangeRate = 1.192;
+  var dollarAmount = prompt('Enter the amount in dollars');
+  alert("Your amount in euro is ".concat(dollarAmount / exchangeRate));
 });
-},{}],"C:/Users/User/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -172,7 +186,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52583" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59463" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -348,5 +362,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/User/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+},{}]},{},["../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
 //# sourceMappingURL=/js.00a46daa.js.map
