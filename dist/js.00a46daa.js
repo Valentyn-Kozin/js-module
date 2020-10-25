@@ -131,6 +131,18 @@ btn_222.addEventListener('click', function () {
   var currentYear = 2020;
   var userAge = currentYear - birthYear;
   alert("You are ".concat(userAge, " years old."));
+}); //3. square perimeter
+
+var btn_223 = document.getElementById('task_22.3');
+btn_223.addEventListener('click', function () {
+  var squareSide = prompt('Enter length of square side');
+  alert("Square perimeter is ".concat(squareSide * 4));
+}); //4. area of a circle
+
+var btn_224 = document.getElementById('task_22.4');
+btn_224.addEventListener('click', function () {
+  var scircleRadius = prompt('Enter length of scircle radius');
+  alert("Area of the circle is ".concat(scircleRadius * scircleRadius * 3.14));
 });
 },{}],"C:/Users/User/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -160,7 +172,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50760" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52583" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
