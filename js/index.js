@@ -41,5 +41,46 @@ let btn_226 = document.getElementById('task_22.6');
 btn_226.addEventListener('click', () => {
     const exchangeRate = 1.192;
     const dollarAmount = prompt('Enter the amount in dollars');
-    alert(`Your amount in euro is ${dollarAmount / exchangeRate}`);
+    const eurAmount = (Math.round(dollarAmount / exchangeRate * 100)) / 100;
+    alert(`Your amount is ${eurAmount} euro`);
+});
+
+//7. memory converter
+let btn_227 = document.getElementById('task_22.7');
+btn_227.addEventListener('click', () => {
+    const memoryGb = prompt('Enter the amount of flash drive memory in Gb');
+    const filesNumber = Math.floor(memoryGb * 1024 / 820);
+    alert(`You can burn ${filesNumber} files of 820 Mb`);
+});
+
+//8. number of chocolates
+let btn_228 = document.getElementById('task_22.8');
+btn_228.addEventListener('click', () => {
+    const cash = prompt('Enter the amount of cash in $');
+    const chocolateCost = prompt('Enter cost of the chocolate in $');
+    const chocolatesAmount = Math.floor(cash / chocolateCost);
+    const rest = cash % chocolateCost;
+    alert(`You can buy ${chocolatesAmount} chocolates and get ${rest.toFixed(2)}$ rest`);
+});
+
+//9. three-digit number
+let btn_229 = document.getElementById('task_22.9');
+btn_229.addEventListener('click', () => {
+    const threeDigitNumber = prompt('Enter three-digit number');
+    const numberOne = Math.floor(threeDigitNumber / 100);
+    const numberTwo = Math.floor((threeDigitNumber - numberOne * 100) / 10);
+    const numberThree = threeDigitNumber - numberOne * 100 - numberTwo * 10;
+    alert(`${numberThree}${numberTwo}${numberOne}`);
+});
+
+//.10 Bank deposit
+let btn_2210 = document.getElementById('task_22.10');
+btn_2210.addEventListener('click', () => {
+    let deposit = prompt('Enter your deposit amount please');
+    const firstMonthInterest = Number((deposit * 0.05 / 12).toFixed(2));
+    const simpeInterestAmount = firstMonthInterest * 2;
+    let depositAmount = Number(deposit) + firstMonthInterest;
+    const compoundInterestAmount = Number((depositAmount * 0.05 / 12).toFixed(2)) + firstMonthInterest;
+    alert(`The amount of income for a deposit with simple interest will be ${simpeInterestAmount}
+The amount of income for a deposit with compound interest will be ${compoundInterestAmount}`);
 });

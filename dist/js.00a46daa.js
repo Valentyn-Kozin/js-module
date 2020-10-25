@@ -156,9 +156,45 @@ var btn_226 = document.getElementById('task_22.6');
 btn_226.addEventListener('click', function () {
   var exchangeRate = 1.192;
   var dollarAmount = prompt('Enter the amount in dollars');
-  alert("Your amount in euro is ".concat(dollarAmount / exchangeRate));
+  var eurAmount = Math.round(dollarAmount / exchangeRate * 100) / 100;
+  alert("Your amount is ".concat(eurAmount, " euro"));
+}); //7. memory converter
+
+var btn_227 = document.getElementById('task_22.7');
+btn_227.addEventListener('click', function () {
+  var memoryGb = prompt('Enter the amount of flash drive memory in Gb');
+  var filesNumber = Math.floor(memoryGb * 1024 / 820);
+  alert("You can burn ".concat(filesNumber, " files of 820 Mb"));
+}); //8. number of chocolates
+
+var btn_228 = document.getElementById('task_22.8');
+btn_228.addEventListener('click', function () {
+  var cash = prompt('Enter the amount of cash in $');
+  var chocolateCost = prompt('Enter cost of the chocolate in $');
+  var chocolatesAmount = Math.floor(cash / chocolateCost);
+  var rest = cash % chocolateCost;
+  alert("You can buy ".concat(chocolatesAmount, " chocolates and get ").concat(rest.toFixed(2), "$ rest"));
+}); //9. three-digit number
+
+var btn_229 = document.getElementById('task_22.9');
+btn_229.addEventListener('click', function () {
+  var threeDigitNumber = prompt('Enter three-digit number');
+  var numberOne = Math.floor(threeDigitNumber / 100);
+  var numberTwo = Math.floor((threeDigitNumber - numberOne * 100) / 10);
+  var numberThree = threeDigitNumber - numberOne * 100 - numberTwo * 10;
+  alert("".concat(numberThree).concat(numberTwo).concat(numberOne));
+}); //.10 Bank deposit
+
+var btn_2210 = document.getElementById('task_22.10');
+btn_2210.addEventListener('click', function () {
+  var deposit = prompt('Enter your deposit amount please');
+  var firstMonthInterest = Number((deposit * 0.05 / 12).toFixed(2));
+  var simpeInterestAmount = firstMonthInterest * 2;
+  var depositAmount = Number(deposit) + firstMonthInterest;
+  var compoundInterestAmount = Number((depositAmount * 0.05 / 12).toFixed(2)) + firstMonthInterest;
+  alert("The amount of income for a deposit with simple interest will be ".concat(simpeInterestAmount, "\nThe amount of income for a deposit with compound interest will be ").concat(compoundInterestAmount));
 });
-},{}],"../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"C:/Users/User/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -186,7 +222,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59463" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53074" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -362,5 +398,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+},{}]},{},["C:/Users/User/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
 //# sourceMappingURL=/js.00a46daa.js.map
