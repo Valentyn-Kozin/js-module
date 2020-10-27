@@ -76,11 +76,11 @@ btn_229.addEventListener('click', () => {
 //.10 Bank deposit
 let btn_2210 = document.getElementById('task_22.10');
 btn_2210.addEventListener('click', () => {
-    let deposit = prompt('Enter your deposit amount please');
-    const firstMonthInterest = Number((deposit * 0.05 / 12).toFixed(2));
+    const deposit = +prompt('Enter your deposit amount please');
+    const firstMonthInterest = +(deposit * 0.05 / 12).toFixed(2);
     const simpeInterestAmount = firstMonthInterest * 2;
-    let depositAmount = Number(deposit) + firstMonthInterest;
-    const compoundInterestAmount = Number((depositAmount * 0.05 / 12).toFixed(2)) + firstMonthInterest;
+    const depositAmount = deposit + firstMonthInterest;
+    const compoundInterestAmount = +(depositAmount * 0.05 / 12).toFixed(2) + firstMonthInterest;
     alert(`The amount of income for a deposit with simple interest will be ${simpeInterestAmount}
 The amount of income for a deposit with compound interest will be ${compoundInterestAmount}`);
 });
