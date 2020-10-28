@@ -117,107 +117,53 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
-// Lesson 22 JavaScript basics
-// 1. user greetings
-var btn_221 = document.getElementById('task_22.1');
-btn_221.addEventListener('click', function () {
-  var userName = prompt('Enter your name please');
-  alert("Hello, ".concat(userName, "!"));
-}); //2. user age
-
-var btn_222 = document.getElementById('task_22.2');
-btn_222.addEventListener('click', function () {
-  var birthYear = prompt('Enter the year of your birth');
-  var currentYear = 2020;
-  var userAge = currentYear - birthYear;
-  alert("You are ".concat(userAge, " years old."));
-}); //3. square perimeter
-
-var btn_223 = document.getElementById('task_22.3');
-btn_223.addEventListener('click', function () {
-  var squareSide = prompt('Enter length of square side');
-  alert("Square perimeter is ".concat(squareSide * 4));
-}); //4. area of a circle
-
-var btn_224 = document.getElementById('task_22.4');
-btn_224.addEventListener('click', function () {
-  var scircleRadius = prompt('Enter length of scircle radius');
-  alert("Area of the circle is ".concat(scircleRadius * scircleRadius * Math.PI));
-}); //5. speed between cities
-
-var btn_225 = document.getElementById('task_22.5');
-btn_225.addEventListener('click', function () {
-  var distance = prompt("Enter distance between the sityes in kilomiters");
-  var time = prompt("Enter time you have to travel in hours");
-  alert("You need to go at a speed of ".concat(distance / time, " km per hour"));
-}); //6. currency converter
-
-var btn_226 = document.getElementById('task_22.6');
-btn_226.addEventListener('click', function () {
-  var exchangeRate = 1.192;
-  var dollarAmount = prompt('Enter the amount in dollars');
-  var eurAmount = Math.round(dollarAmount / exchangeRate * 100) / 100;
-  alert("Your amount is ".concat(eurAmount, " euro"));
-}); //7. memory converter
-
-var btn_227 = document.getElementById('task_22.7');
-btn_227.addEventListener('click', function () {
-  var memoryGb = prompt('Enter the amount of flash drive memory in Gb');
-  var filesNumber = Math.floor(memoryGb * 1024 / 820);
-  alert("You can burn ".concat(filesNumber, " files of 820 Mb"));
-}); //8. number of chocolates
-
-var btn_228 = document.getElementById('task_22.8');
-btn_228.addEventListener('click', function () {
-  var cash = prompt('Enter the amount of cash in $');
-  var chocolateCost = prompt('Enter cost of the chocolate in $');
-  var chocolatesAmount = Math.floor(cash / chocolateCost);
-  var rest = cash % chocolateCost;
-  alert("You can buy ".concat(chocolatesAmount, " chocolates and get ").concat(rest.toFixed(2), "$ rest"));
-}); //9. three-digit number
-
-var btn_229 = document.getElementById('task_22.9');
-btn_229.addEventListener('click', function () {
-  var threeDigitNumber = prompt('Enter three-digit number');
-  var numberOne = Math.floor(threeDigitNumber / 100);
-  var numberTwo = Math.floor((threeDigitNumber - numberOne * 100) / 10);
-  var numberThree = threeDigitNumber - numberOne * 100 - numberTwo * 10;
-  alert("".concat(numberThree).concat(numberTwo).concat(numberOne));
-}); //.10 Bank deposit
-
-var btn_2210 = document.getElementById('task_22.10');
-btn_2210.addEventListener('click', function () {
-  var deposit = +prompt('Enter your deposit amount please');
-  var firstMonthInterest = +(deposit * 0.05 / 12).toFixed(2);
-  var simpeInterestAmount = firstMonthInterest * 2;
-  var depositAmount = deposit + firstMonthInterest;
-  var compoundInterestAmount = +(depositAmount * 0.05 / 12).toFixed(2) + firstMonthInterest;
-  alert("The amount of income for a deposit with simple interest will be ".concat(simpeInterestAmount, "\nThe amount of income for a deposit with compound interest will be ").concat(compoundInterestAmount));
-}); // Lesson 23 Data types and operators
+})({"js/index23.js":[function(require,module,exports) {
+// Lesson 23 Data types and operators
 //1. User age
-
 var btn_231 = document.getElementById('task_23.1');
 btn_231.addEventListener('click', function () {
   var userAge = +prompt('Enter your age please');
 
-  function getAgeCategory(userAge) {
-    if (userAge < 0) {
-      alert("See you after your birth in this world");
-    } else if (userAge < 3) {
-      alert("Your baby is very clever");
-    } else if (userAge < 12) {
-      alert("Hello, kid!");
-    } else if (userAge < 19) {
-      alert("How you doing, man?!");
-    } else if (userAge < 60) {
-      alert("Glad to see You, Sir/Mam!");
-    } else {
-      alert("I hope you applied for the correct address.");
-    }
+  if (userAge < 0) {
+    alert("See you after your birth in this world");
+  } else if (userAge < 3) {
+    alert("Your baby is very clever");
+  } else if (userAge < 12) {
+    alert("Hello, kid!");
+  } else if (userAge < 19) {
+    alert("How you doing, man?!");
+  } else if (userAge < 60) {
+    alert("Glad to see You, Sir/Mam!");
+  } else {
+    alert("I hope you applied for the correct address.");
   }
+}); //2. Number & symbol
 
-  getAgeCategory(userAge);
+var btn_232 = document.getElementById('task_23.2');
+btn_232.addEventListener('click', function () {
+  var buttonWithNumber = prompt('Press the number key on the keyboard please');
+  var buttonWithSymbol = buttonWithNumber == 1 ? '!' : buttonWithNumber == 2 ? '@' : buttonWithNumber == 3 ? '#' : buttonWithNumber == 4 ? '$' : buttonWithNumber == 5 ? '%' : buttonWithNumber == 6 ? '^' : buttonWithNumber == 7 ? '&' : buttonWithNumber == 8 ? '*' : buttonWithNumber == 9 ? '(' : buttonWithNumber == 0 ? ')' : 'Press the number key on the keyboard please';
+  alert(buttonWithSymbol);
+}); //3. check for the same numbers
+
+var btn_233 = document.getElementById('task_23.3');
+btn_233.addEventListener('click', function () {
+  var threeDigitNumber = +prompt('Please enter a three-digit number');
+  var threeDigitString = String(threeDigitNumber);
+
+  if (threeDigitString.length == 3) {
+    var digit1 = Math.floor(threeDigitNumber / 100);
+    var digit2 = Math.floor((threeDigitNumber - digit1 * 100) / 10);
+    var digit3 = threeDigitNumber - digit1 * 100 - digit2 * 10;
+
+    if (digit1 != digit2 && digit1 != digit3 && digit2 != digit3) {
+      alert('There are no identical digits in the number');
+    } else {
+      alert('There are identical digits in the number');
+    }
+  } else {
+    alert('You entered wrong number');
+  }
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -423,5 +369,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
-//# sourceMappingURL=/js.00a46daa.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index23.js"], null)
+//# sourceMappingURL=/index23.44f7dacc.js.map

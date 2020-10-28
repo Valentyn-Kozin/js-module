@@ -1,3 +1,4 @@
+// Lesson 22 JavaScript basics
 // 1. user greetings
 let btn_221 = document.getElementById('task_22.1');
 btn_221.addEventListener('click', () => {
@@ -84,3 +85,4 @@ btn_2210.addEventListener('click', () => {
     alert(`The amount of income for a deposit with simple interest will be ${simpeInterestAmount}
 The amount of income for a deposit with compound interest will be ${compoundInterestAmount}`);
 });
+

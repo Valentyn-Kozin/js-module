@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/index.js":[function(require,module,exports) {
+})({"js/index22.js":[function(require,module,exports) {
 // Lesson 22 JavaScript basics
 // 1. user greetings
 var btn_221 = document.getElementById('task_22.1');
@@ -194,30 +194,6 @@ btn_2210.addEventListener('click', function () {
   var depositAmount = deposit + firstMonthInterest;
   var compoundInterestAmount = +(depositAmount * 0.05 / 12).toFixed(2) + firstMonthInterest;
   alert("The amount of income for a deposit with simple interest will be ".concat(simpeInterestAmount, "\nThe amount of income for a deposit with compound interest will be ").concat(compoundInterestAmount));
-}); // Lesson 23 Data types and operators
-//1. User age
-
-var btn_231 = document.getElementById('task_23.1');
-btn_231.addEventListener('click', function () {
-  var userAge = +prompt('Enter your age please');
-
-  function getAgeCategory(userAge) {
-    if (userAge < 0) {
-      alert("See you after your birth in this world");
-    } else if (userAge < 3) {
-      alert("Your baby is very clever");
-    } else if (userAge < 12) {
-      alert("Hello, kid!");
-    } else if (userAge < 19) {
-      alert("How you doing, man?!");
-    } else if (userAge < 60) {
-      alert("Glad to see You, Sir/Mam!");
-    } else {
-      alert("I hope you applied for the correct address.");
-    }
-  }
-
-  getAgeCategory(userAge);
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -423,5 +399,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
-//# sourceMappingURL=/js.00a46daa.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index22.js"], null)
+//# sourceMappingURL=/index22.a13e5226.js.map

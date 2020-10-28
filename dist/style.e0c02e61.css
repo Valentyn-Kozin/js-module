@@ -21,7 +21,7 @@ ul {
   padding: 15px;
 }
 
-.homework-1__title {
+.homework__title {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 36px;
@@ -29,17 +29,17 @@ ul {
   color: black;
   margin-bottom: 40px;
 }
-.homework-1__list {
+.homework__list {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.homework-1__item:not(:last-child) {
+.homework__item:not(:last-child) {
   margin-right: 40px;
 }
-.homework-1__btn {
+.homework__btn {
   height: 40px;
   width: 70px;
   font-family: "Roboto", sans-serif;
