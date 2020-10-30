@@ -1,13 +1,13 @@
 // Lesson 22 JavaScript basics
 // 1. user greetings
-let btn_221 = document.getElementById('task_22.1');
+const btn_221 = document.getElementById('task_22.1');
 btn_221.addEventListener('click', () => {
     const userName = prompt('Enter your name please');
     alert(`Hello, ${userName}!`);
 });
 
 //2. user age
-let btn_222 = document.getElementById('task_22.2');
+const btn_222 = document.getElementById('task_22.2');
 btn_222.addEventListener('click', () => {
     const birthYear = prompt('Enter the year of your birth');
     const currentYear = 2020;
@@ -16,21 +16,21 @@ btn_222.addEventListener('click', () => {
 });
 
 //3. square perimeter
-let btn_223 = document.getElementById('task_22.3');
+const btn_223 = document.getElementById('task_22.3');
 btn_223.addEventListener('click', () => {
     const squareSide = prompt('Enter length of square side');
     alert(`Square perimeter is ${squareSide * 4}`);
 });
 
 //4. area of a circle
-let btn_224 = document.getElementById('task_22.4');
+const btn_224 = document.getElementById('task_22.4');
 btn_224.addEventListener('click', () => {
     const scircleRadius = prompt('Enter length of scircle radius');
     alert(`Area of the circle is ${scircleRadius * scircleRadius *Math.PI}`);
 });
 
 //5. speed between cities
-let btn_225 = document.getElementById('task_22.5');
+const btn_225 = document.getElementById('task_22.5');
 btn_225.addEventListener('click', () => {
     const distance = prompt(`Enter distance between the sityes in kilomiters`);
     const time = prompt(`Enter time you have to travel in hours`);
@@ -38,7 +38,7 @@ btn_225.addEventListener('click', () => {
 });
 
 //6. currency converter
-let btn_226 = document.getElementById('task_22.6');
+const btn_226 = document.getElementById('task_22.6');
 btn_226.addEventListener('click', () => {
     const exchangeRate = 1.192;
     const dollarAmount = prompt('Enter the amount in dollars');
@@ -47,7 +47,7 @@ btn_226.addEventListener('click', () => {
 });
 
 //7. memory converter
-let btn_227 = document.getElementById('task_22.7');
+const btn_227 = document.getElementById('task_22.7');
 btn_227.addEventListener('click', () => {
     const memoryGb = prompt('Enter the amount of flash drive memory in Gb');
     const filesNumber = Math.floor(memoryGb * 1024 / 820);
@@ -55,7 +55,7 @@ btn_227.addEventListener('click', () => {
 });
 
 //8. number of chocolates
-let btn_228 = document.getElementById('task_22.8');
+const btn_228 = document.getElementById('task_22.8');
 btn_228.addEventListener('click', () => {
     const cash = prompt('Enter the amount of cash in $');
     const chocolateCost = prompt('Enter cost of the chocolate in $');
@@ -65,7 +65,7 @@ btn_228.addEventListener('click', () => {
 });
 
 //9. three-digit number
-let btn_229 = document.getElementById('task_22.9');
+const btn_229 = document.getElementById('task_22.9');
 btn_229.addEventListener('click', () => {
     const threeDigitNumber = prompt('Enter three-digit number');
     const numberOne = Math.floor(threeDigitNumber / 100);
@@ -75,7 +75,7 @@ btn_229.addEventListener('click', () => {
 });
 
 //.10 Bank deposit
-let btn_2210 = document.getElementById('task_22.10');
+const btn_2210 = document.getElementById('task_22.10');
 btn_2210.addEventListener('click', () => {
     const deposit = +prompt('Enter your deposit amount please');
     const firstMonthInterest = +(deposit * 0.05 / 12).toFixed(2);
