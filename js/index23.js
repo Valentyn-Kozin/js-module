@@ -119,3 +119,56 @@ btn_235.addEventListener('click', () => {
         alert(`You did not enter a five-digit number`);
     }
 });
+
+//6. Currency converter
+const btn_236 = document.getElementById('task_23.6');
+btn_236.addEventListener('click', () => {
+    const userDollar = +prompt('How much dollars you want to convert?');
+    const userCurrency = prompt('Enter a currency to convert - EUR, UAH or AZN');
+    const eur = Math.round(userDollar * 0.8475, 2);
+    const uah = Math.round(userDollar * 28.35);
+    const azn = Math.round(userDollar * 1.7);
+    switch (userCurrency) {
+        case 'EUR':
+        case 'Eur':
+        case 'eur':
+            alert(`You can get ${eur} EUR`);
+            break;
+        case 'UAH':
+        case 'Uah':
+        case 'uah':
+            alert(`You can get ${uah} UAH`);
+            break;
+        case 'AZN':
+        case 'Azn':
+        case 'azn':
+            alert(`You can get ${azn} AZN`);
+            break;
+        default:
+            alert('Enter the correct currency to convert');
+    }
+});
+
+//7. Discount payment
+const btn_237 = document.getElementById('task_23.7');
+btn_237.addEventListener('click', () => {
+    const userAmount = +prompt('Enter the amount of your purchase');
+    const discount0 = 0;
+    const discount1 = 0.03;
+    const discount2 = 0.05;
+    const discount3 = 0.07;
+    const rate1 = 200;
+    const rate2 = 300;
+    const rate3 = 500;
+    if (0 <= userAmount && userAmount < rate1) {
+        alert(`Amount to be paid is ${userAmount}`);
+    } else if (rate1 <= userAmount && userAmount < rate2) {
+        alert(`Amount to be paid is ${Math.round(userAmount * (1 - discount1), 2)}`);
+    } else if (rate2 <= userAmount && userAmount < rate3) {
+        alert(`${Math.round(userAmount * (1 - discount2), 2)}`);
+    } else if (rate3 <= userAmount) {
+        alert(`${Math.round(userAmount * (1 - discount3), 2)}`);
+    } else {
+        alert(`Enter the correct amount of your purchase`);
+    }
+});

@@ -249,6 +249,62 @@ btn_235.addEventListener('click', function () {
   } else {
     alert("You did not enter a five-digit number");
   }
+}); //6. Currency converter
+
+var btn_236 = document.getElementById('task_23.6');
+btn_236.addEventListener('click', function () {
+  var userDollar = +prompt('How much dollars you want to convert?');
+  var userCurrency = prompt('Enter a currency to convert - EUR, UAH or AZN');
+  var eur = Math.round(userDollar * 0.8475, 2);
+  var uah = Math.round(userDollar * 28.35);
+  var azn = Math.round(userDollar * 1.7);
+
+  switch (userCurrency) {
+    case 'EUR':
+    case 'Eur':
+    case 'eur':
+      alert("You can get ".concat(eur, " EUR"));
+      break;
+
+    case 'UAH':
+    case 'Uah':
+    case 'uah':
+      alert("You can get ".concat(uah, " UAH"));
+      break;
+
+    case 'AZN':
+    case 'Azn':
+    case 'azn':
+      alert("You can get ".concat(azn, " AZN"));
+      break;
+
+    default:
+      alert('Enter the correct currency to convert');
+  }
+}); //7. Discount payment
+
+var btn_237 = document.getElementById('task_23.7');
+btn_237.addEventListener('click', function () {
+  var userAmount = +prompt('Enter the amount of your purchase');
+  var discount0 = 0;
+  var discount1 = 0.03;
+  var discount2 = 0.05;
+  var discount3 = 0.07;
+  var rate1 = 200;
+  var rate2 = 300;
+  var rate3 = 500;
+
+  if (0 <= userAmount && userAmount < rate1) {
+    alert("Amount to be paid is ".concat(userAmount));
+  } else if (rate1 <= userAmount && userAmount < rate2) {
+    alert("Amount to be paid is ".concat(Math.round(userAmount * (1 - discount1), 2)));
+  } else if (rate2 <= userAmount && userAmount < rate3) {
+    alert("".concat(Math.round(userAmount * (1 - discount2), 2)));
+  } else if (rate3 <= userAmount) {
+    alert("".concat(Math.round(userAmount * (1 - discount3), 2)));
+  } else {
+    alert("Enter the correct amount of your purchase");
+  }
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -278,7 +334,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50057" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49953" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
