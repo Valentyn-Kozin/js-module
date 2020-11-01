@@ -172,3 +172,49 @@ btn_237.addEventListener('click', () => {
         alert(`Enter the correct amount of your purchase`);
     }
 });
+
+//8. A circle inscribed in a square
+const btn_238 = document.getElementById('task_23.8');
+btn_238.addEventListener('click', () => {
+    const circleLength = +prompt('Enter the length of the circle');
+    const squarePerimeter = +prompt('Enter the perimeter of the square');
+    if ((circleLength / Math.PI) <= (squarePerimeter / 4)) {
+        alert(`This circle can fit into the specified square`);
+    } else {
+        alert(`This circle can not fit into the specified square`);
+    }
+});
+
+//9. Three qoestions
+const btn_239 = document.getElementById('task_23.9');
+btn_239.addEventListener('click', () => {
+    alert(`You will receive 3 questions. Choose the correct answer and enter its serial number.`);
+    const question1 = prompt('Which plants are associated with the evolution of horses, primates and rodents in the Tertiary period of the Cenozoic era?',
+        `1 - cereal plants, 2 - spore plants, 3 - cycad plants`);
+    const question2 = prompt('in what period of the Paleozoic era was the extinction of ancient clowns, horsetails, ferns?',
+        '1 - Silurian, 2 - Permian, 3 - Carbonian');
+    const question3 = prompt('What invertebrates are distributed and dominate in the Cambrian, Ordovician, Silurian and Devonian?',
+        '1 - corals, 2 - swordtails, 3 - trilobites');
+    let points = 0;
+    if (question1 == 1) {
+        points += 2;
+    }
+    if (question2 == 2) {
+        points += 2;
+    }
+    if (question3 == 3) {
+        points += 2;
+    }
+    alert(`You've got ${points} points`);
+});
+
+//10. Get the next day after users birthday
+const btn_2310 = document.getElementById('task_23.10');
+btn_2310.addEventListener('click', () => {
+    const userBirthYear = prompt('Enter the year of yor birth');
+    const userBirthMonth = prompt('Enter the month of your birth');
+    const userBirthDay = prompt('Enter the day of your birth');
+    let userDate = new Date(userBirthYear, userBirthMonth - 1, userBirthDay);
+    userDate.setDate(userDate.getDate() + 1);
+    alert(`The next day after your birthday is ${userDate}`);
+});
