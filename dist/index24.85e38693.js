@@ -118,7 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/index24.js":[function(require,module,exports) {
-// Lesson 24 Cycles
+// Lesson 24 Loops
 //1. Calculate the sum of all numbers in a user-specified range.
 var btn_241 = document.getElementById('task_24.1');
 btn_241.addEventListener('click', function () {
@@ -247,11 +247,50 @@ btn_247.addEventListener('click', function () {
 
   alert("".concat(newNumber));
 }); //8. Day of week
-// const btn_248 = document.getElementById('task_24.8');
-// btn_248.addEventListener('click', () => {
-//     const userDay = prompt(`Enter any day of the week`);
-//     let nextDay = userDay;
-// });
+
+var btn_248 = document.getElementById('task_24.8');
+btn_248.addEventListener('click', function () {
+  var userDay = new Date(prompt("Enter any date using yyyy-mm-dd"));
+  var nextDay = userDay;
+  var question = true;
+
+  while (question) {
+    var weekDay = void 0;
+
+    switch (nextDay.getDay()) {
+      case 0:
+        weekDay = 'Sunday';
+        break;
+
+      case 1:
+        weekDay = 'Monday';
+        break;
+
+      case 2:
+        weekDay = 'Tuesday';
+        break;
+
+      case 3:
+        weekDay = 'Wednesday';
+        break;
+
+      case 4:
+        weekDay = 'Thersday';
+        break;
+
+      case 5:
+        weekDay = 'Friday';
+        break;
+
+      case 6:
+        weekDay = 'Saturday';
+        break;
+    }
+
+    nextDay.setDate(nextDay.getDate() + 1);
+    question = confirm("".concat(weekDay, " Do you want to see the next day?"));
+  }
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

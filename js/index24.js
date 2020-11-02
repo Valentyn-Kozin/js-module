@@ -1,4 +1,4 @@
-// Lesson 24 Cycles
+// Lesson 24 Loops
 
 //1. Calculate the sum of all numbers in a user-specified range.
 const btn_241 = document.getElementById('task_24.1');
@@ -121,9 +121,37 @@ btn_247.addEventListener('click', () => {
 });
 
 //8. Day of week
-// const btn_248 = document.getElementById('task_24.8');
-// btn_248.addEventListener('click', () => {
-//     const userDay = prompt(`Enter any day of the week`);
-//     let nextDay = userDay;
-
-// });
+const btn_248 = document.getElementById('task_24.8');
+btn_248.addEventListener('click', () => {
+    const userDay =  new Date(prompt(`Enter any date using yyyy-mm-dd`));
+    let nextDay = userDay;
+    let question = true;
+    while (question) {
+        let weekDay;
+        switch (nextDay.getDay()) {
+            case 0:
+                weekDay = 'Sunday';
+                break;
+            case 1:
+                weekDay = 'Monday';
+                break;
+            case 2:
+                weekDay = 'Tuesday';
+                break;
+            case 3:
+                weekDay = 'Wednesday';
+                break;
+            case 4:
+                weekDay = 'Thersday';
+                break;
+            case 5:
+                weekDay = 'Friday';
+                break;
+            case 6:
+                weekDay = 'Saturday';
+                break;
+        }
+        nextDay.setDate(nextDay.getDate() + 1);
+        question = confirm(`${weekDay} Do you want to see the next day?`);
+    }
+});
