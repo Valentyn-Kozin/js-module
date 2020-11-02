@@ -155,3 +155,45 @@ btn_248.addEventListener('click', () => {
         question = confirm(`${weekDay} Do you want to see the next day?`);
     }
 });
+
+//9. Multiplication table
+const btn_249 = document.getElementById('task_24.9');
+btn_249.addEventListener('click', () => {
+    alert(`Let's take a look at the multiplication table`);
+    let multiplicationTable = ``;
+    let multiplicationResult;
+    for (let i = 2; i <= 9; i++) {
+        for (let j = 1; j <= 10; j++) {
+            multiplicationResult = i * j;
+            multiplicationTable += `${i}*${j}=${multiplicationResult} `;
+        }
+    }
+    alert(`Here it is!
+    ${multiplicationTable}`);
+});
+
+//10. Guess the number game
+const btn_2410 = document.getElementById('task_24.10');
+btn_2410.addEventListener('click', () => {
+    alert(`Guess a number from 0 to 100`);
+    let i = 0;
+    let j = 100;
+    let guesNumber;
+    while (guesNumber!=2) {
+        let N = Math.round((i + j) / 2);
+        guesNumber = +prompt(`Enter 1, if your number is less then ${N}.
+        Enter 2, if your number is equel to ${N}.
+        Enter 3, if your number is bigger then ${N}.`);
+        switch (guesNumber) {
+            case 1:
+                j = --N;
+                break;
+            case 2:
+                alert(`That was easy))`);
+                break;
+            case 3:
+                i = ++N;
+                break;
+        }
+    }
+});
