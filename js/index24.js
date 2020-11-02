@@ -82,3 +82,48 @@ btn_245.addEventListener('click', () => {
     ${negativeNumber} negative numbers, ${evenNumber} even numbers and 
     ${oddNumber} odd numbers`);
 });
+
+//6. Loop calculator.
+const btn_246 = document.getElementById('task_24.6');
+btn_246.addEventListener('click', () => {
+    let arithmeticResult;
+    let question = true
+    while (question) {
+        const number1 = +prompt('Enter a number');
+        const number2 = +prompt('Enter a number');
+        const arithmeticOperation = prompt('Enter the sign of the arithmetic operation - +, -, *, /');
+        if (arithmeticOperation == '+') {
+            arithmeticResult = number1 + number2;
+        } else if (arithmeticOperation == '-') {
+            arithmeticResult = number1 - number2;
+        } else if (arithmeticOperation == '*') {
+            arithmeticResult = number1 * number2;
+        } else if (arithmeticOperation == '/') {
+            arithmeticResult = number1 / number2;
+        } else {
+            alert('Enter the correct sign of the arithmetic operation - +, -, *, /');
+        }
+        alert(`The result of the arithmetic operation is ${arithmeticResult}`);
+        question = confirm(`Do you want to repeat the operation?`);
+    }
+});
+
+//7. Shift number
+const btn_247 = document.getElementById('task_24.7');
+btn_247.addEventListener('click', () => {
+    const userNumber = prompt(`Enter a natural number`);
+    const shiftNumber = +prompt(`Enter the number of digits to which you want to move your number`);
+    let newNumber = userNumber;
+    for (let i = 1; i <= shiftNumber; i++) {
+        newNumber = newNumber.slice(1) + newNumber.slice(0, 1);
+    }
+    alert(`${newNumber}`);
+});
+
+//8. Day of week
+// const btn_248 = document.getElementById('task_24.8');
+// btn_248.addEventListener('click', () => {
+//     const userDay = prompt(`Enter any day of the week`);
+//     let nextDay = userDay;
+
+// });

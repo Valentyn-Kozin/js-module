@@ -206,7 +206,52 @@ btn_245.addEventListener('click', function () {
   }
 
   alert("You entered ".concat(zero, " zeros, ").concat(positiveNumber, " positive numbers, \n    ").concat(negativeNumber, " negative numbers, ").concat(evenNumber, " even numbers and \n    ").concat(oddNumber, " odd numbers"));
-});
+}); //6. Loop calculator.
+
+var btn_246 = document.getElementById('task_24.6');
+btn_246.addEventListener('click', function () {
+  var arithmeticResult;
+  var question = true;
+
+  while (question) {
+    var number1 = +prompt('Enter a number');
+    var number2 = +prompt('Enter a number');
+    var arithmeticOperation = prompt('Enter the sign of the arithmetic operation - +, -, *, /');
+
+    if (arithmeticOperation == '+') {
+      arithmeticResult = number1 + number2;
+    } else if (arithmeticOperation == '-') {
+      arithmeticResult = number1 - number2;
+    } else if (arithmeticOperation == '*') {
+      arithmeticResult = number1 * number2;
+    } else if (arithmeticOperation == '/') {
+      arithmeticResult = number1 / number2;
+    } else {
+      alert('Enter the correct sign of the arithmetic operation - +, -, *, /');
+    }
+
+    alert("The result of the arithmetic operation is ".concat(arithmeticResult));
+    question = confirm("Do you want to repeat the operation?");
+  }
+}); //7. Shift number
+
+var btn_247 = document.getElementById('task_24.7');
+btn_247.addEventListener('click', function () {
+  var userNumber = prompt("Enter a natural number");
+  var shiftNumber = +prompt("Enter the number of digits to which you want to move your number");
+  var newNumber = userNumber;
+
+  for (var i = 1; i <= shiftNumber; i++) {
+    newNumber = newNumber.slice(1) + newNumber.slice(0, 1);
+  }
+
+  alert("".concat(newNumber));
+}); //8. Day of week
+// const btn_248 = document.getElementById('task_24.8');
+// btn_248.addEventListener('click', () => {
+//     const userDay = prompt(`Enter any day of the week`);
+//     let nextDay = userDay;
+// });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -235,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50081" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61519" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
