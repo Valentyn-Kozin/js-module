@@ -117,79 +117,100 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/index25.js":[function(require,module,exports) {
+// Lesson 25 Functions
+//1. Which number is bigger?
+var btn_251 = document.getElementById('task_25.1');
+btn_251.addEventListener('click', function () {
+  var bigger;
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+  var isBigger = function isBigger(a, b) {
+    if (a < b) {
+      bigger = -1;
+    } else if (a > b) {
+      bigger = 1;
+    } else bigger = 0;
 
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
+    return bigger;
   };
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
+  alert("Enter two numbers. If the first one is bigger you'll get -1. If the second one - you'll get 1. If they are equell - you'll get 0.");
+  var firstNumber = +prompt("Enter the first number");
+  var secondNumber = +prompt("Enter the second number");
+  alert(isBigger(firstNumber, secondNumber));
+}); //2. Factorial
 
-var cssTimeout = null;
+var btn_252 = document.getElementById('task_25.2');
+btn_252.addEventListener('click', function () {
+  var userNumber = +prompt("Enter a natural number to find out its factorial");
+  var fact;
 
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+  function factorial(n) {
+    if (n == 1) {
+      fact = 1;
+    } else {
+      fact = factorial(n - 1) * n;
+    }
+
+    return fact;
   }
 
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
+  alert("".concat(factorial(userNumber)));
+}); //3. Three digits to number
 
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+var btn_253 = document.getElementById('task_25.3');
+btn_253.addEventListener('click', function () {
+  alert("Enter three digits");
+  var digit1 = prompt("Enter the first digit");
+  var digit2 = prompt("Enter the second digit");
+  var digit3 = prompt("Enter the third digit");
+
+  var getNumber = function getNumber(a, b, c) {
+    return a + b + c;
+  };
+
+  alert("".concat(getNumber(digit1, digit2, digit3)));
+}); //4. Rectangle area
+
+var btn_254 = document.getElementById('task_25.4');
+btn_254.addEventListener('click', function () {
+  var length = +prompt("Enter the length of the rectangle");
+  var width = +prompt("Enter the width of the rectangle");
+
+  var rectangleArea = function rectangleArea(a, b) {
+    if (a == 0) {
+      return b * b;
+    } else if (b == 0) {
+      return a * a;
+    } else return a * b;
+  };
+
+  alert(rectangleArea(length, width));
+}); //5. The perfect number
+
+var btn_255 = document.getElementById('task_25.5');
+btn_255.addEventListener('click', function () {
+  var userNumber = +prompt("Enter a natural number");
+
+  function isPerfect(a) {
+    var j = 0;
+
+    for (var i = 1; i < a; i++) {
+      if (a % i == 0) {
+        j += i;
       }
     }
 
-    cssTimeout = null;
-  }, 50);
-}
+    if (a == j) {
+      alert("".concat(a, " is a perfect number"));
+    } else {
+      alert("".concat(a, " is not a perfect number"));
+    }
+  }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\img\\kisspng-javascript-logo-html-clip-art-javascript-logo.png":[["kisspng-javascript-logo-html-clip-art-javascript-logo.01139e87.png","img/kisspng-javascript-logo-html-clip-art-javascript-logo.png"],"img/kisspng-javascript-logo-html-clip-art-javascript-logo.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  isPerfect(userNumber);
+});
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +414,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e0c02e61.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index25.js"], null)
+//# sourceMappingURL=/index25.00f773c8.js.map
