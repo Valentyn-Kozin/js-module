@@ -209,6 +209,89 @@ btn_255.addEventListener('click', function () {
   }
 
   isPerfect(userNumber);
+}); //6. The perfect number from a range of numbers
+
+var btn_256 = document.getElementById('task_25.6');
+btn_256.addEventListener('click', function () {
+  alert("Enter the largest and smallest numbers in the range of natural numbers");
+  var smallestNumber = +prompt("Enter the smallest Number");
+  var largestNumber = +prompt("Enter the largest Number");
+  var count = 0;
+
+  function getPerfect(min, max) {
+    for (var i = smallestNumber; i <= largestNumber; i++) {
+      isPerfect(i);
+    }
+
+    if (count == 0) {
+      alert("There are no perfect numbers");
+    }
+  }
+
+  function isPerfect(a) {
+    var j = 0;
+
+    for (var k = 1; k < a; k++) {
+      if (a % k == 0) {
+        j += k;
+      }
+    }
+
+    if (a == j) {
+      count++;
+      alert("".concat(a, " is a perfect number"));
+    }
+  }
+
+  getPerfect(smallestNumber, largestNumber);
+}); //7. Get time
+
+var btn_257 = document.getElementById('task_25.7');
+btn_257.addEventListener('click', function () {
+  var userHours = +prompt("Enter hours");
+  var userMinutes = +prompt("Enter minutes");
+  var userSeconds = +prompt("Enter seconds");
+
+  function getTime() {
+    var h = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var m = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var s = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    var time = new Date();
+    time.setHours(h, m, s);
+    alert("It is ".concat(time.toTimeString()));
+  }
+
+  getTime(userHours, userMinutes, userSeconds);
+}); //8. Get time in seconds
+
+var btn_258 = document.getElementById('task_25.8');
+btn_258.addEventListener('click', function () {
+  var userHours = +prompt("Enter hours");
+  var userMinutes = +prompt("Enter minutes");
+  var userSeconds = +prompt("Enter seconds");
+
+  var getSeconds = function getSeconds(h, m, s) {
+    var seconds = h * 3600 + m * 60 + s;
+    return seconds;
+  };
+
+  alert("The entered time consists of ".concat(getSeconds(userHours, userMinutes, userSeconds), " seconds"));
+}); //9. Get time from seconds
+
+var btn_259 = document.getElementById('task_25.9');
+btn_259.addEventListener('click', function () {
+  var userSeconds = +prompt("Enter seconds");
+
+  var getTime = function getTime(s) {
+    var seconds = s % 60;
+    var minutes = (s - seconds) / 60 % 3600;
+    var hours = (s - minutes * 60 - seconds) / 3600;
+    var time = new Date();
+    time.setHours(hours, minutes, seconds);
+    return time.toTimeString();
+  };
+
+  alert("".concat(getTime(userSeconds)));
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -238,7 +321,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50491" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55400" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

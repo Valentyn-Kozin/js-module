@@ -78,3 +78,75 @@ btn_255.addEventListener('click', () => {
     }
     isPerfect(userNumber);
 });
+
+//6. The perfect number from a range of numbers
+const btn_256 = document.getElementById('task_25.6');
+btn_256.addEventListener('click', () => {
+    alert(`Enter the largest and smallest numbers in the range of natural numbers`);
+    const smallestNumber = +prompt(`Enter the smallest Number`);
+    const largestNumber = +prompt(`Enter the largest Number`);
+    let count = 0;
+    function getPerfect(min, max) {
+        for (let i = smallestNumber; i <= largestNumber; i++){
+            isPerfect(i);
+        }
+        if (count == 0) {
+                alert(`There are no perfect numbers`);
+            }
+    }
+    function isPerfect(a) {
+        let j = 0;
+        for (let k = 1; k < a; k++) {
+            if (a % k == 0) {
+                j += k;
+            }
+        }
+        if (a == j) {
+            count++;
+            alert(`${a} is a perfect number`);
+        }
+    }
+    getPerfect(smallestNumber, largestNumber);
+});
+
+//7. Get time
+const btn_257 = document.getElementById('task_25.7');
+btn_257.addEventListener('click', () => {
+    const userHours = +prompt(`Enter hours`);
+    const userMinutes = +prompt(`Enter minutes`);
+    const userSeconds =  +prompt(`Enter seconds`);
+    function getTime(h = 0, m = 0, s = 0) {
+        let time = new Date;
+        time.setHours(h, m, s);
+        alert(`It is ${time.toTimeString()}`);
+    }
+    getTime(userHours, userMinutes, userSeconds);
+});
+
+//8. Get time in seconds
+const btn_258 = document.getElementById('task_25.8');
+btn_258.addEventListener('click', () => {
+    const userHours = +prompt(`Enter hours`);
+    const userMinutes = +prompt(`Enter minutes`);
+    const userSeconds = +prompt(`Enter seconds`);
+    const getSeconds = function (h, m, s) {
+        const seconds = h * 3600 + m * 60 + s;
+        return seconds;
+    };
+    alert(`The entered time consists of ${getSeconds(userHours, userMinutes, userSeconds)} seconds`);
+});
+
+//9. Get time from seconds
+const btn_259 = document.getElementById('task_25.9');
+btn_259.addEventListener('click', () => {
+    const userSeconds = +prompt(`Enter seconds`);
+    const getTime = function (s) {
+        const seconds = s % 60;
+        const minutes = ((s - seconds) / 60) % 3600;
+        const hours = (s - (minutes * 60) - seconds) / 3600;
+        let time = new Date;
+        time.setHours(hours, minutes, seconds);
+        return time.toTimeString();
+    };
+    alert(`${getTime(userSeconds)}`);
+});
