@@ -292,6 +292,46 @@ btn_259.addEventListener('click', function () {
   };
 
   alert("".concat(getTime(userSeconds)));
+}); //10. The difference between the two dates
+
+var btn_2510 = document.getElementById('task_25.10');
+btn_2510.addEventListener('click', function () {
+  var user1Hours = +prompt("Enter hours");
+  var user1Minutes = +prompt("Enter minutes");
+  var user1Seconds = +prompt("Enter seconds");
+  var user2Hours = +prompt("Enter hours");
+  var user2Minutes = +prompt("Enter minutes");
+  var user2Seconds = +prompt("Enter seconds");
+
+  var getSeconds = function getSeconds(h, m, s) {
+    var seconds = h * 3600 + m * 60 + s;
+    return seconds;
+  };
+
+  var getTime = function getTime(s) {
+    var seconds = s % 60;
+    var minutes = (s - seconds) / 60 % 3600;
+    var hours = (s - minutes * 60 - seconds) / 3600;
+    var time = new Date();
+    time.setHours(hours, minutes, seconds);
+    return time.toTimeString();
+  };
+
+  var getTimeDifference = function getTimeDifference(h1, m1, s1, h2, m2, s2) {
+    var setSeconds = 0;
+
+    if (getSeconds(h1, m1, s1) > getSeconds(h2, m2, s2)) {
+      setSeconds = getSeconds(h1, m1, s1) - getSeconds(h2, m2, s2);
+    }
+
+    if (getSeconds(h1, m1, s1) < getSeconds(h2, m2, s2)) {
+      setSeconds = getSeconds(h2, m2, s2) - getSeconds(h1, m1, s1);
+    }
+
+    return getTime(setSeconds);
+  };
+
+  alert("The differense is \n    ".concat(getTimeDifference(user1Hours, user1Minutes, user1Seconds, user2Hours, user2Minutes, user2Seconds)));
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -321,7 +361,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55400" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58084" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

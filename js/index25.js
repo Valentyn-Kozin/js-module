@@ -150,3 +150,37 @@ btn_259.addEventListener('click', () => {
     };
     alert(`${getTime(userSeconds)}`);
 });
+
+//10. The difference between the two dates
+const btn_2510 = document.getElementById('task_25.10');
+btn_2510.addEventListener('click', () => {
+    const user1Hours = +prompt(`Enter hours`);
+    const user1Minutes = +prompt(`Enter minutes`);
+    const user1Seconds = +prompt(`Enter seconds`);
+    const user2Hours = +prompt(`Enter hours`);
+    const user2Minutes = +prompt(`Enter minutes`);
+    const user2Seconds = +prompt(`Enter seconds`);
+    const getSeconds = function (h, m, s) {
+        const seconds = h * 3600 + m * 60 + s;
+        return seconds;
+    };
+    const getTime = function (s) {
+        const seconds = s % 60;
+        const minutes = ((s - seconds) / 60) % 3600;
+        const hours = (s - (minutes * 60) - seconds) / 3600;
+        let time = new Date;
+        time.setHours(hours, minutes, seconds);
+        return time.toTimeString();
+    };
+    const getTimeDifference = function (h1, m1, s1, h2, m2, s2) {
+        let setSeconds = 0;
+        if (getSeconds(h1, m1, s1) > getSeconds(h2, m2, s2)) {
+            setSeconds = getSeconds(h1, m1, s1) - getSeconds(h2, m2, s2);
+        } if (getSeconds(h1, m1, s1) < getSeconds(h2, m2, s2)) {
+            setSeconds = getSeconds(h2, m2, s2) - getSeconds(h1, m1, s1);
+        }
+        return getTime(setSeconds);
+    }
+    alert(`The differense is 
+    ${getTimeDifference(user1Hours, user1Minutes, user1Seconds, user2Hours, user2Minutes, user2Seconds)}`);
+});
