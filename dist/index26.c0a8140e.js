@@ -117,79 +117,86 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/index26.js":[function(require,module,exports) {
+// Lesson 25 Objects
+//1. Object, cars & travels
+var btn_261 = document.getElementById('task_26.1');
+btn_261.addEventListener('click', function () {
+  var carManufacturer = prompt("Enter the car manufacturer");
+  var carModel = prompt("Enter the car model");
+  var carYear = +prompt("Enter the year of the car manufacturing");
+  var carSpeed = +prompt("Enter the cruising speed of the car");
+  var carDistance = +prompt("Enter the distance you need to drive");
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+  function Car(manufacturer, model, year, speed) {
+    this.manufacturer = manufacturer;
+    this.model = model;
+    this.year = year;
+    this.speed = speed;
+
+    this.print = function () {
+      alert("The car manufacturer is ".concat(this.manufacturer, "\n            The car model is ").concat(this.model, "\n            The year of the car manufacturing is ").concat(this.year, "\n            The cruising speed of the car is ").concat(this.speed));
+    };
+
+    this.timeTrip = function (distance) {
+      var time = distance / this.speed + Math.trunc(distance / this.speed / 4);
+      return time;
+    };
   }
 
-  return bundleURL;
-}
+  car = new Car(carManufacturer, carModel, carYear, carSpeed);
+  car.print();
+  alert(car.timeTrip(carDistance));
+}); //2. Operations with numerators and denominators
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+var btn_262 = document.getElementById('task_26.2');
+btn_262.addEventListener('click', function () {
+  function fraction(numerator, denominator) {
+    this.numerator = numerator;
+    this.denominator = denominator;
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
+    this.fractionReduction = function (numerator, denominator) {
+      var n = numerator;
+      var d = denominator;
 
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+      for (var i = 2; i <= n && i <= d; i++) {
+        if (n % i == 0 && d % i == 0) {
+          n /= i;
+          d /= i;
+          i--;
+        }
       }
-    }
 
-    cssTimeout = null;
-  }, 50);
-}
+      return {
+        numerator: n,
+        denominator: d
+      };
+    };
+  }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
+  ;
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\img\\kisspng-javascript-logo-html-clip-art-javascript-logo.png":[["kisspng-javascript-logo-html-clip-art-javascript-logo.01139e87.png","img/kisspng-javascript-logo-html-clip-art-javascript-logo.png"],"img/kisspng-javascript-logo-html-clip-art-javascript-logo.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  function fractionalOperations(numerator1, denominator1, numerator2, denominator2) {
+    this.fraction1 = new fraction(numerator1, denominator1);
+    this.fraction2 = new fraction(numerator2, denominator2);
+    this.add = new fraction(numerator1 * denominator2 + numerator2 * denominator1, denominator1 * denominator2);
+    this.subtr = new fraction(numerator1 * denominator2 - numerator2 * denominator1, denominator1 * denominator2);
+    this.mult = new fraction(numerator1 * numerator2, denominator1 * denominator2);
+    this.div = new fraction(numerator1 * denominator2, denominator1 * numerator2);
+  }
+
+  ;
+  var num1 = +prompt("Enter numerator of the first fraction");
+  var denom1 = +prompt("Enter denominator of the first fraction");
+  var num2 = +prompt("Enter numerator of the second fraction");
+  var denom2 = +prompt("Enter denominator of the second fraction");
+  alert("You entered fractions ".concat(num1, "/").concat(denom1, " and ").concat(num2, "/").concat(denom2));
+  fract1 = new fraction(num1, denom1);
+  fract2 = new fraction(num2, denom2);
+  alert("Redused fractions are ".concat(fract1.fractionReduction(num1, denom1), " and ").concat(fract2.fractionReduction(num2, denom2)));
+  fractionalOperations = fractionalOperations(num1, denom1, num2, denom2);
+});
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -393,5 +400,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e0c02e61.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index26.js"], null)
+//# sourceMappingURL=/index26.c0a8140e.js.map
