@@ -36,9 +36,9 @@ btn_262.addEventListener('click', () => {
         this.numerator = numerator;
         this.denominator = denominator;
         this.fractionReduction = function (numerator, denominator) {
-            let n = numerator;
-            let d = denominator;
-            for (let i = 2; i <= n && i <= d; i++){
+            let n = Math.abs(numerator);
+            let d = Math.abs(denominator);
+            for (let i = 2; i <= n && i <= d; i++) {
                 if ((n % i == 0) && (d % i == 0)) {
                     n /= i;
                     d /= i;
@@ -46,11 +46,10 @@ btn_262.addEventListener('click', () => {
                 }
             }
             return {
-                numerator: n,
-                denominator: d,
+                numerator: n * Math.sign(numerator),
+                denominator: d * Math.sign(denominator),
             }
-            
-        }
+        };
     };
     function fractionalOperations(numerator1, denominator1, numerator2, denominator2) {
         this.fraction1 = new fraction(numerator1, denominator1);
@@ -67,7 +66,9 @@ btn_262.addEventListener('click', () => {
     alert(`You entered fractions ${num1}/${denom1} and ${num2}/${denom2}`);
     fract1 = new fraction(num1, denom1);
     fract2 = new fraction(num2, denom2);
-    alert(`Redused fractions are ${fract1.fractionReduction(num1, denom1)} and ${fract2.fractionReduction(num2, denom2)}`);
-    fractionalOperations = fractionalOperations(num1, denom1, num2, denom2);
+    fract1.fractionReduction(num1, denom1);
+    fract2.fractionReduction(num2, denom2);
+    alert(`Redused fractions are ${num1}/${denom1} and ${num2}/${denom2}`);
+    fractOperations = fractionalOperations(num1, denom1, num2, denom2);
 
 });

@@ -156,8 +156,8 @@ btn_262.addEventListener('click', function () {
     this.denominator = denominator;
 
     this.fractionReduction = function (numerator, denominator) {
-      var n = numerator;
-      var d = denominator;
+      var n = Math.abs(numerator);
+      var d = Math.abs(denominator);
 
       for (var i = 2; i <= n && i <= d; i++) {
         if (n % i == 0 && d % i == 0) {
@@ -168,8 +168,8 @@ btn_262.addEventListener('click', function () {
       }
 
       return {
-        numerator: n,
-        denominator: d
+        numerator: n * Math.sign(numerator),
+        denominator: d * Math.sign(denominator)
       };
     };
   }
@@ -193,8 +193,10 @@ btn_262.addEventListener('click', function () {
   alert("You entered fractions ".concat(num1, "/").concat(denom1, " and ").concat(num2, "/").concat(denom2));
   fract1 = new fraction(num1, denom1);
   fract2 = new fraction(num2, denom2);
-  alert("Redused fractions are ".concat(fract1.fractionReduction(num1, denom1), " and ").concat(fract2.fractionReduction(num2, denom2)));
-  fractionalOperations = fractionalOperations(num1, denom1, num2, denom2);
+  fract1.fractionReduction(num1, denom1);
+  fract2.fractionReduction(num2, denom2);
+  alert("Redused fractions are ".concat(num1, "/").concat(denom1, " and ").concat(num2, "/").concat(denom2));
+  fractOperations = fractionalOperations(num1, denom1, num2, denom2);
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -224,7 +226,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49921" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51112" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
