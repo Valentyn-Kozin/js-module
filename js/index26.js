@@ -32,12 +32,12 @@ btn_261.addEventListener('click', () => {
 //2. Operations with numerators and denominators
 const btn_262 = document.getElementById('task_26.2');
 btn_262.addEventListener('click', () => {
-    function fraction(numerator, denominator) {
-        this.numerator = numerator;
-        this.denominator = denominator;
-        this.fractionReduction = function (numerator, denominator) {
-            let n = Math.abs(numerator);
-            let d = Math.abs(denominator);
+    function Fraction(num, denom) {
+        this.num = num;
+        this.denom = denom;
+        this.fractionReduce = function () {
+            let n = Math.abs(this.num);
+            let d = Math.abs(this.denom);
             for (let i = 2; i <= n && i <= d; i++) {
                 if ((n % i == 0) && (d % i == 0)) {
                     n /= i;
@@ -45,30 +45,38 @@ btn_262.addEventListener('click', () => {
                     i--;
                 }
             }
-            return {
-                numerator: n * Math.sign(numerator),
-                denominator: d * Math.sign(denominator),
-            }
+            alert(`${n * Math.sign(this.num)}/${d * Math.sign(this.denom)}`);
+            // return {
+            //     num: n * Math.sign(this.num),
+            //     denom: d * Math.sign(this.denom),
+            // }
         };
     };
-    function fractionalOperations(numerator1, denominator1, numerator2, denominator2) {
-        this.fraction1 = new fraction(numerator1, denominator1);
-        this.fraction2 = new fraction(numerator2, denominator2);
-        this.add = new fraction(numerator1 * denominator2 + numerator2 * denominator1, denominator1 * denominator2);
-        this.subtr = new fraction(numerator1 * denominator2 - numerator2 * denominator1, denominator1 * denominator2);
-        this.mult = new fraction(numerator1 * numerator2, denominator1 * denominator2);
-        this.div = new fraction(numerator1 * denominator2, denominator1 * numerator2);
+    function FractionOperations(num1, denom1, num2, denom2) {
+        this.fraction1 = new Fraction(num1, denom1);
+        this.fraction2 = new Fraction(num2, denom2);
+        this.add = new Fraction(num1 * denom2 + num2 * denom1, denom1 * denom2);
+        this.subtr = new Fraction(num1 * denom2 - num2 * denom1, denom1 * denom2);
+        this.mult = new Fraction(num1 * num2, denom1 * denom2);
+        this.div = new Fraction(num1 * denom2, denom1 * num2);
     };
-    const num1 = +prompt(`Enter numerator of the first fraction`);
-    const denom1 = +prompt(`Enter denominator of the first fraction`);
-    const num2 = +prompt(`Enter numerator of the second fraction`);
-    const denom2 = +prompt(`Enter denominator of the second fraction`);
+    const num1 = prompt(`Enter numerator of the first fraction`);
+    const denom1 = prompt(`Enter denominator of the first fraction`);
+    const num2 = prompt(`Enter numerator of the second fraction`);
+    const denom2 = prompt(`Enter denominator of the second fraction`);
     alert(`You entered fractions ${num1}/${denom1} and ${num2}/${denom2}`);
-    fract1 = new fraction(num1, denom1);
-    fract2 = new fraction(num2, denom2);
-    fract1.fractionReduction(num1, denom1);
-    fract2.fractionReduction(num2, denom2);
-    alert(`Redused fractions are ${num1}/${denom1} and ${num2}/${denom2}`);
-    fractOperations = fractionalOperations(num1, denom1, num2, denom2);
+    alert(`The results of arithmetic operations are as follows`);
+    fractions = new FractionOperations(num1, denom1, num2, denom2);
+    fractions.fraction1.fractionReduce();
+    fractions.fraction2.fractionReduce();
+    fractions.add.fractionReduce();
+    fractions.subtr.fractionReduce();
+    fractions.mult.fractionReduce();
+    fractions.div.fractionReduce();
+});
 
+//3. Time object.
+const btn_263 = document.getElementById('task_26.3');
+btn_263.addEventListener('click', () => {
+    
 });
