@@ -202,7 +202,60 @@ btn_262.addEventListener('click', function () {
 }); //3. Time object.
 
 var btn_263 = document.getElementById('task_26.3');
-btn_263.addEventListener('click', function () {});
+btn_263.addEventListener('click', function () {
+  function Time(h, m, s) {
+    this.h = h;
+    this.m = m;
+    this.s = s;
+
+    this.showTime = function () {
+      var getTime = new Date();
+      getTime.setHours(this.h, this.m, this.s);
+      alert("It is ".concat(getTime.toTimeString()));
+    };
+
+    this.addSeconds = function (as) {
+      var newTime = getTime(getSeconds(this.h, this.m, this.s + as));
+      return newTime;
+    };
+
+    this.addMinutes = function (am) {
+      var newTime = getTime(getSeconds(this.h, this.m + am, this.s));
+      return newTime;
+    };
+
+    this.addHours = function (ah) {
+      var newTime = getTime(getSeconds(this.h + ah, this.m, this.s));
+      return newTime;
+    };
+  }
+
+  var getSeconds = function getSeconds(h, m, s) {
+    var seconds = h * 3600 + m * 60 + s;
+    return seconds;
+  };
+
+  var getTime = function getTime(s) {
+    var seconds = s % 60;
+    var minutes = (s - seconds) / 60 % 3600;
+    var hours = (s - minutes * 60 - seconds) / 3600;
+    var time = new Date();
+    time.setHours(hours, minutes, seconds);
+    return time.toTimeString();
+  };
+
+  var userHours = +prompt("Enter hours");
+  var userMinutes = +prompt("Enter minutes");
+  var userSeconds = +prompt("Enter seconds");
+  time = new Time(userHours, userMinutes, userSeconds);
+  time.showTime();
+  var userChangeSeconds = +prompt("Enter the number of seconds for which you want to change the previously entered time.");
+  alert("Changed time is ".concat(time.addSeconds(userChangeSeconds)));
+  var userChangeMinutes = +prompt("Enter the number of minutes for which you want to change the previously entered time.");
+  alert("Changed time is ".concat(time.addMinutes(userChangeMinutes)));
+  var userChangeHours = +prompt("Enter the number of hours for which you want to change the previously entered time.");
+  alert("Changed time is ".concat(time.addHours(userChangeHours)));
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -231,7 +284,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53973" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57779" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

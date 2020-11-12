@@ -78,5 +78,49 @@ btn_262.addEventListener('click', () => {
 //3. Time object.
 const btn_263 = document.getElementById('task_26.3');
 btn_263.addEventListener('click', () => {
-    
+    function Time(h, m, s) {
+        this.h = h;
+        this.m = m;
+        this.s = s;
+        this.showTime = function() {
+            const getTime = new Date;
+            getTime.setHours(this.h, this.m, this.s);
+            alert(`It is ${getTime.toTimeString()}`);
+        };
+        this.addSeconds = function (as) {
+            const newTime = getTime(getSeconds(this.h, this.m, this.s + as));
+            return newTime;
+        };
+        this.addMinutes = function (am) {
+            const newTime = getTime(getSeconds(this.h, this.m + am, this.s));
+            return newTime;
+        };
+        this.addHours = function (ah) {
+            const newTime = getTime(getSeconds(this.h + ah, this.m, this.s));
+            return newTime;
+        };
+    }
+    const getSeconds = function (h, m, s) {
+        const seconds = h * 3600 + m * 60 + s;
+        return seconds;
+    };
+    const getTime = function (s) {
+        const seconds = s % 60;
+        const minutes = ((s - seconds) / 60) % 3600;
+        const hours = (s - (minutes * 60) - seconds) / 3600;
+        let time = new Date;
+        time.setHours(hours, minutes, seconds);
+        return time.toTimeString();
+    };
+    const userHours = +prompt(`Enter hours`);
+    const userMinutes = +prompt(`Enter minutes`);
+    const userSeconds = +prompt(`Enter seconds`);
+    time = new Time(userHours, userMinutes, userSeconds);
+    time.showTime();
+    const userChangeSeconds = +prompt(`Enter the number of seconds for which you want to change the previously entered time.`);
+    alert(`Changed time is ${time.addSeconds(userChangeSeconds)}`);
+    const userChangeMinutes = +prompt(`Enter the number of minutes for which you want to change the previously entered time.`);
+    alert(`Changed time is ${time.addMinutes(userChangeMinutes)}`);
+    const userChangeHours = +prompt(`Enter the number of hours for which you want to change the previously entered time.`);
+    alert(`Changed time is ${time.addHours(userChangeHours)}`);
 });
