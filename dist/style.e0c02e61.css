@@ -39,14 +39,56 @@ ul {
 .homework__item:not(:last-child) {
   margin-right: 40px;
 }
+.homework__task {
+  border: 1px solid #e4bd00;
+  border-radius: 10px;
+  padding: 10px;
+}
+.homework__task:hover {
+  border-color: #fed800;
+}
+.homework__task-title {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.homework__task-desc {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  margin-bottom: 12px;
+}
 .homework__btn {
-  height: 40px;
-  width: 70px;
+  min-height: 40px;
+  min-width: 70px;
+  padding: 20x;
+  border-radius: 10px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: black;
   cursor: pointer;
+  background-color: #e4bd00;
+  border-width: 2px;
+  border-color: transparent;
+  box-shadow: none;
+  border-image: none;
+  transition: all 0.3s ease;
+}
+.homework__btn:hover, .homework__btn:active {
+  background-color: #fed800;
+  border-color: #fed800;
+  box-shadow: 2px 2px 5px 1px;
+  border-style: ridge;
+}
+.homework__btn:focus {
+  outline: none;
+}
+.homework__btn-title {
+  display: block;
+  margin: 0 10px;
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */

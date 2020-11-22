@@ -14,11 +14,53 @@ $style: "homework";
       margin-right: 40px;
     }
   }
+  &__task {
+    border: 1px solid #e4bd00;
+    border-radius: 10px;
+    padding: 10px;
+    &:hover {
+      border-color: #fed800;
+    }
+  }
+
+  &__task-title {
+    font-family: $roboto;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  &__task-desc {
+    font-family: $roboto;
+    @include text(16px, 400, black);
+    text-align: center;
+    margin-bottom: 12px;
+  }
   &__btn {
-    height: 40px;
-    width: 70px;
+    min-height: 40px;
+    min-width: 70px;
+    padding: 20x;
+    border-radius: 10px;
     font-family: $roboto;
     @include text(16px, 400, black);
     cursor: pointer;
+    background-color: #e4bd00;
+    border-width: 2px;
+    border-color: transparent;
+    box-shadow: none;
+    border-image: none;
+    transition: all 0.3s ease;
+    &:hover,
+    &:active {
+      background-color: #fed800;
+      border-color: #fed800;
+      box-shadow: 2px 2px 5px 1px;
+      border-style: ridge;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  &__btn-title {
+    display: block;
+    margin: 0 10px;
   }
 }
