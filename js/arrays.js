@@ -12,22 +12,19 @@ export const arrays = () => {
         if (shoppingList.length == 0) {
             alert(`Your shopping list is empty.`)
         } else {
-        console.log(shoppingList);
             shoppingList.sort((a, b) => a.isBought - b.isBought);
             let shoppingListToPrint = "";
-            // let j = "w";
+            let j = "";
             for (let i of shoppingList) {
-                // if ([i.isBought] === "false") {
-                //     j = "not yet purchased";
-                // } else {
-                //     j = "already purchased";
-                // }
-                shoppingListToPrint += [i.productName] + '\, ' + [i.requiredQuantity] + ' item(s), need to buy - ' + [i.isBought] + '\n';
+                if (i.isBought == true) {
+                    j = "already purchased";
+                } else {
+                    j = "not yet purchased";
+                }
+                shoppingListToPrint += i.productName + '\, ' + i.requiredQuantity + ' item(s), need to buy - ' + j + '\n';
             }
             alert(`${shoppingListToPrint}`);
         }
-        
-
     });
     const btn_2712 = document.getElementById('task_27.1.2');
     btn_2712.addEventListener('click', () => {
@@ -71,5 +68,34 @@ export const arrays = () => {
                 alert(`There is no such product in the list`);
             }
         }
+    });
+
+    //2. Store receipt
+    const storeReceipt = [];
+    function StoreReceiptItem(productName, productQuantity, productPriсe) {
+        this.productName = productName;
+        this.productQuantity = productQuantity;
+        this.productPriсe = productPriсe;
+        this.sum = this.productQuantity * this.productPriсe;
+    }
+    const btn_2721 = document.getElementById('task_27.2.1');
+    btn_2721.addEventListener('click', () => {
+        let question = true;
+        while (question) {
+            const userProductName = prompt(`Enter product name`);
+            const userProductQuantity = +prompt(`Enter product quantity`);
+            const userProductPrice = +prompt(`Enter product's price`);
+            const userStoreReceiptItem = new StoreReceiptItem(userProductName, userProductQuantity, userProductPrice);
+            storeReceipt.push(userStoreReceiptItem);
+            question = confirm(`Do you want to enter enother product?`);
+        }
+        let storeReceiptToPrint = "";
+        let storeReceiptTotal = 0;
+        for (let i of storeReceipt) {
+            storeReceiptToPrint += i.productName + '\t' + i.productQuantity + '*' + i.productPriсe + '\t' + i.sum + '\n';
+            storeReceiptTotal += i.productQuantity * i.productPriсe;
+        }
+        storeReceiptToPrint += 'Total' + '\t' + storeReceiptTotal + '\n';
+        console.log(storeReceiptToPrint);
     });
 };

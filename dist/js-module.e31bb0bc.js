@@ -1086,11 +1086,11 @@ var arrays = function arrays() {
     if (shoppingList.length == 0) {
       alert("Your shopping list is empty.");
     } else {
-      console.log(shoppingList);
       shoppingList.sort(function (a, b) {
         return a.isBought - b.isBought;
       });
-      var shoppingListToPrint = ""; // let j = "w";
+      var shoppingListToPrint = "";
+      var j = "";
 
       var _iterator = _createForOfIteratorHelper(shoppingList),
           _step;
@@ -1098,12 +1098,14 @@ var arrays = function arrays() {
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var i = _step.value;
-          // if ([i.isBought] === "false") {
-          //     j = "not yet purchased";
-          // } else {
-          //     j = "already purchased";
-          // }
-          shoppingListToPrint += [i.productName] + '\, ' + [i.requiredQuantity] + ' item(s), need to buy - ' + [i.isBought] + '\n';
+
+          if (i.isBought == true) {
+            j = "already purchased";
+          } else {
+            j = "not yet purchased";
+          }
+
+          shoppingListToPrint += i.productName + '\, ' + i.requiredQuantity + ' item(s), need to buy - ' + j + '\n';
         }
       } catch (err) {
         _iterator.e(err);
@@ -1163,6 +1165,50 @@ var arrays = function arrays() {
         alert("There is no such product in the list");
       }
     }
+  }); //2. Store receipt
+
+  var storeReceipt = [];
+
+  function StoreReceiptItem(productName, productQuantity, productPriсe) {
+    this.productName = productName;
+    this.productQuantity = productQuantity;
+    this.productPriсe = productPriсe;
+    this.sum = this.productQuantity * this.productPriсe;
+  }
+
+  var btn_2721 = document.getElementById('task_27.2.1');
+  btn_2721.addEventListener('click', function () {
+    var question = true;
+
+    while (question) {
+      var userProductName = prompt("Enter product name");
+      var userProductQuantity = +prompt("Enter product quantity");
+      var userProductPrice = +prompt("Enter product's price");
+      var userStoreReceiptItem = new StoreReceiptItem(userProductName, userProductQuantity, userProductPrice);
+      storeReceipt.push(userStoreReceiptItem);
+      question = confirm("Do you want to enter enother product?");
+    }
+
+    var storeReceiptToPrint = "";
+    var storeReceiptTotal = 0;
+
+    var _iterator2 = _createForOfIteratorHelper(storeReceipt),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var i = _step2.value;
+        storeReceiptToPrint += i.productName + '\t' + i.productQuantity + '*' + i.productPriсe + '\t' + i.sum + '\n';
+        storeReceiptTotal += i.productQuantity * i.productPriсe;
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+
+    storeReceiptToPrint += 'Total' + '\t' + storeReceiptTotal + '\n';
+    console.log(storeReceiptToPrint);
   });
 };
 
@@ -1216,7 +1262,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49932" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52027" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
