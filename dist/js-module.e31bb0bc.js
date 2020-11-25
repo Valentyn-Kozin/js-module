@@ -1191,6 +1191,8 @@ var arrays = function arrays() {
 
     var storeReceiptToPrint = "";
     var storeReceiptTotal = 0;
+    var exp = 0;
+    var expPurchase = "";
 
     var _iterator2 = _createForOfIteratorHelper(storeReceipt),
         _step2;
@@ -1200,6 +1202,11 @@ var arrays = function arrays() {
         var i = _step2.value;
         storeReceiptToPrint += i.productName + '\t' + i.productQuantity + '*' + i.productPriсe + '\t' + i.sum + '\n';
         storeReceiptTotal += i.productQuantity * i.productPriсe;
+
+        if (exp < i.sum) {
+          exp = i.sum;
+          expPurchase = i.productName;
+        }
       }
     } catch (err) {
       _iterator2.e(err);
@@ -1208,11 +1215,101 @@ var arrays = function arrays() {
     }
 
     storeReceiptToPrint += 'Total' + '\t' + storeReceiptTotal + '\n';
-    console.log(storeReceiptToPrint);
-  });
+    storeReceiptToPrint += 'The most expensive purchase is ' + expPurchase + '\n';
+    storeReceiptToPrint += 'The average cost of the goods in the check is ' + storeReceiptTotal / storeReceipt.length;
+    alert(storeReceiptToPrint);
+  }); //3. CSS array
+  // const btn_273 = document.getElementById('task_27.3');
+  // btn_273.addEventListener('click', () => {
+  //     const cssArray = [];
+  //     function CssArrayItem(styleName, style) {
+  //     this.styleName = styleName;
+  //     this.style = style;
+  //     }
+  //     let question = true;
+  //     while (question) {
+  //         const userStyleName = prompt(`Enter css text style name`);
+  //         const userStyle = prompt(`Enter css style property`);
+  //         const userCssStyleItem = new CssArrayItem(userStyleName, userStyle);
+  //         cssArray.push(userCssStyleItem);
+  //         question = confirm(`Do you want to enter enother style?`);
+  //     }
+  //     const userText = prompt(`Enter some text`);
+  //     function addString(arr, text) {
+  //         let string = '<p style=\"';
+  //         for (let i of arr) {
+  //             string += i.styleName + ': ' + i.style + ';';
+  //         }
+  //         string += '>' + text + '</p>';
+  //         document.write(string);
+  //     }
+  //     addString(cssArray, userText);
+  // });
 };
 
 exports.arrays = arrays;
+},{}],"js/array3.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.array3 = void 0;
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var array3 = function array3() {
+  var btn_273 = document.getElementById('task_27.3');
+  btn_273.addEventListener('click', function () {
+    var cssArray = [];
+
+    function CssArrayItem(styleName, style) {
+      this.styleName = styleName;
+      this.style = style;
+    }
+
+    var question = true;
+
+    while (question) {
+      var userStyleName = prompt("Enter css text style name");
+      var userStyle = prompt("Enter css style property");
+      var userCssStyleItem = new CssArrayItem(userStyleName, userStyle);
+      cssArray.push(userCssStyleItem);
+      question = confirm("Do you want to enter enother style?");
+    }
+
+    var userText = prompt("Enter some text");
+
+    function addString(arr, text) {
+      var string = '<p style=\"';
+
+      var _iterator = _createForOfIteratorHelper(arr),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var i = _step.value;
+          string += i.styleName + ': ' + i.style + ';';
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      string += '>' + text + '</p>';
+      document.write(string);
+    }
+
+    addString(cssArray, userText);
+  });
+};
+
+exports.array3 = array3;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -1228,13 +1325,16 @@ var _objects = require("./js/objects");
 
 var _arrays = require("./js/arrays");
 
+var _array = require("./js/array3");
+
 (0, _basics.basics)();
 (0, _datatypesoperators.dataTypesOperators)();
 (0, _loops.loops)();
 (0, _functions.functions)();
 (0, _objects.objects)();
 (0, _arrays.arrays)();
-},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _array.array3)();
+},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js","./js/array3":"js/array3.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1262,7 +1362,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52027" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50014" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

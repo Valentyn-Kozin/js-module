@@ -63,4 +63,10 @@ $style: "homework";
     display: block;
     margin: 0 10px;
   }
+  &__link {
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+  }
 }

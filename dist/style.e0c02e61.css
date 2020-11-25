@@ -90,5 +90,11 @@ ul {
   display: block;
   margin: 0 10px;
 }
+.homework__link {
+  text-decoration: none;
+}
+.homework__link:visited {
+  color: inherit;
+}
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */

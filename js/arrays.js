@@ -91,11 +91,47 @@ export const arrays = () => {
         }
         let storeReceiptToPrint = "";
         let storeReceiptTotal = 0;
+        let exp = 0;
+        let expPurchase = "";
         for (let i of storeReceipt) {
             storeReceiptToPrint += i.productName + '\t' + i.productQuantity + '*' + i.productPriсe + '\t' + i.sum + '\n';
             storeReceiptTotal += i.productQuantity * i.productPriсe;
+            if (exp < i.sum) {
+                exp = i.sum;
+                expPurchase = i.productName;
+            }
         }
         storeReceiptToPrint += 'Total' + '\t' + storeReceiptTotal + '\n';
-        console.log(storeReceiptToPrint);
+        storeReceiptToPrint += 'The most expensive purchase is ' + expPurchase + '\n';
+        storeReceiptToPrint += 'The average cost of the goods in the check is ' + (storeReceiptTotal / storeReceipt.length);
+        alert(storeReceiptToPrint);
     });
+    //3. CSS array
+    // const btn_273 = document.getElementById('task_27.3');
+    // btn_273.addEventListener('click', () => {
+    //     const cssArray = [];
+    //     function CssArrayItem(styleName, style) {
+    //     this.styleName = styleName;
+    //     this.style = style;
+    //     }
+    //     let question = true;
+    //     while (question) {
+    //         const userStyleName = prompt(`Enter css text style name`);
+    //         const userStyle = prompt(`Enter css style property`);
+    //         const userCssStyleItem = new CssArrayItem(userStyleName, userStyle);
+    //         cssArray.push(userCssStyleItem);
+    //         question = confirm(`Do you want to enter enother style?`);
+    //     }
+    //     const userText = prompt(`Enter some text`);
+    //     function addString(arr, text) {
+    //         let string = '<p style=\"';
+    //         for (let i of arr) {
+    //             string += i.styleName + ': ' + i.style + ';';
+    //         }
+    //         string += '>' + text + '</p>';
+    //         document.write(string);
+    //     }
+    //     addString(cssArray, userText);
+    // });
+    
 };
