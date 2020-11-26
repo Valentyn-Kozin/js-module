@@ -1219,50 +1219,7 @@ var arrays = function arrays() {
     storeReceiptToPrint += 'The average cost of the goods in the check is ' + storeReceiptTotal / storeReceipt.length;
     alert(storeReceiptToPrint);
   }); //3. CSS array
-  // const btn_273 = document.getElementById('task_27.3');
-  // btn_273.addEventListener('click', () => {
-  //     const cssArray = [];
-  //     function CssArrayItem(styleName, style) {
-  //     this.styleName = styleName;
-  //     this.style = style;
-  //     }
-  //     let question = true;
-  //     while (question) {
-  //         const userStyleName = prompt(`Enter css text style name`);
-  //         const userStyle = prompt(`Enter css style property`);
-  //         const userCssStyleItem = new CssArrayItem(userStyleName, userStyle);
-  //         cssArray.push(userCssStyleItem);
-  //         question = confirm(`Do you want to enter enother style?`);
-  //     }
-  //     const userText = prompt(`Enter some text`);
-  //     function addString(arr, text) {
-  //         let string = '<p style=\"';
-  //         for (let i of arr) {
-  //             string += i.styleName + ': ' + i.style + ';';
-  //         }
-  //         string += '>' + text + '</p>';
-  //         document.write(string);
-  //     }
-  //     addString(cssArray, userText);
-  // });
-};
 
-exports.arrays = arrays;
-},{}],"js/array3.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.array3 = void 0;
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-var array3 = function array3() {
   var btn_273 = document.getElementById('task_27.3');
   btn_273.addEventListener('click', function () {
     var cssArray = [];
@@ -1285,31 +1242,144 @@ var array3 = function array3() {
     var userText = prompt("Enter some text");
 
     function addString(arr, text) {
-      var string = '<p style=\"';
+      var string = '<p style="';
 
-      var _iterator = _createForOfIteratorHelper(arr),
-          _step;
+      var _iterator3 = _createForOfIteratorHelper(arr),
+          _step3;
 
       try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var i = _step.value;
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var i = _step3.value;
           string += i.styleName + ': ' + i.style + ';';
         }
       } catch (err) {
-        _iterator.e(err);
+        _iterator3.e(err);
       } finally {
-        _iterator.f();
+        _iterator3.f();
       }
 
-      string += '>' + text + '</p>';
+      string += '">' + text + '</p>';
       document.write(string);
     }
 
     addString(cssArray, userText);
+  }); //3. Academy audiences
+
+  var audiences = [];
+  audiences.push({
+    number: 101,
+    seats: 10,
+    faculty: 'Biology'
+  });
+  audiences.push({
+    number: 102,
+    seats: 15,
+    faculty: 'Geology'
+  });
+  audiences.push({
+    number: 103,
+    seats: 20,
+    faculty: 'Economics'
+  });
+  audiences.push({
+    number: 104,
+    seats: 12,
+    faculty: 'History'
+  });
+  audiences.push({
+    number: 105,
+    seats: 18,
+    faculty: 'Mathematics'
+  });
+  audiences.push({
+    number: 106,
+    seats: 10,
+    faculty: 'Psuchology'
+  });
+  audiences.push({
+    number: 107,
+    seats: 15,
+    faculty: 'Chemistry'
+  });
+  audiences.push({
+    number: 108,
+    seats: 13,
+    faculty: 'Economics'
+  });
+  audiences.push({
+    number: 109,
+    seats: 10,
+    faculty: 'History'
+  });
+  audiences.push({
+    number: 110,
+    seats: 10,
+    faculty: 'Psuchology'
+  });
+
+  var printAudience = function printAudience(arr) {
+    var audienceList = "";
+
+    var _iterator4 = _createForOfIteratorHelper(arr),
+        _step4;
+
+    try {
+      for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+        var i = _step4.value;
+        audienceList += "audience " + i.number + ', ' + i.seats + ' seats, ' + i.faculty + ' Faculty' + '\n';
+      }
+    } catch (err) {
+      _iterator4.e(err);
+    } finally {
+      _iterator4.f();
+    }
+
+    alert("".concat(audienceList));
+  };
+
+  var btn_2741 = document.getElementById('task_27.4.1');
+  btn_2741.addEventListener('click', function () {
+    printAudience(audiences);
+  });
+  var btn_2742 = document.getElementById('task_27.4.2');
+  btn_2742.addEventListener('click', function () {
+    var userFaculty = prompt("Enter faculty you are serching");
+    var facultyAudience = audiences.filter(function (item) {
+      return item.faculty == userFaculty;
+    });
+    printAudience(facultyAudience);
+  });
+  var btn_2743 = document.getElementById('task_27.4.3');
+  btn_2743.addEventListener('click', function () {
+    var group = {};
+    var groupName = prompt("Enter group name");
+    var studentsNumber = +prompt("Enter number of students in the group");
+    var groupFaculty = prompt("Enter the faculty of the group");
+    group.name = groupName;
+    group.students = studentsNumber;
+    group.faculty = groupFaculty;
+    var groupAudience = audiences.filter(function (item) {
+      return item.faculty == group.faculty && item.seats >= group.students;
+    });
+    printAudience(groupAudience);
+  });
+  var btn_2744 = document.getElementById('task_27.4.4');
+  btn_2744.addEventListener('click', function () {
+    audiences.sort(function (a, b) {
+      return a.seats - b.seats;
+    });
+    printAudience(audiences);
+  });
+  var btn_2745 = document.getElementById('task_27.4.5');
+  btn_2745.addEventListener('click', function () {
+    audiences.sort(function (a, b) {
+      return a.number - b.number;
+    });
+    printAudience(audiences);
   });
 };
 
-exports.array3 = array3;
+exports.arrays = arrays;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -1325,16 +1395,13 @@ var _objects = require("./js/objects");
 
 var _arrays = require("./js/arrays");
 
-var _array = require("./js/array3");
-
 (0, _basics.basics)();
 (0, _datatypesoperators.dataTypesOperators)();
 (0, _loops.loops)();
 (0, _functions.functions)();
 (0, _objects.objects)();
 (0, _arrays.arrays)();
-(0, _array.array3)();
-},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js","./js/array3":"js/array3.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1362,7 +1429,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50014" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49978" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

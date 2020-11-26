@@ -107,31 +107,82 @@ export const arrays = () => {
         alert(storeReceiptToPrint);
     });
     //3. CSS array
-    // const btn_273 = document.getElementById('task_27.3');
-    // btn_273.addEventListener('click', () => {
-    //     const cssArray = [];
-    //     function CssArrayItem(styleName, style) {
-    //     this.styleName = styleName;
-    //     this.style = style;
-    //     }
-    //     let question = true;
-    //     while (question) {
-    //         const userStyleName = prompt(`Enter css text style name`);
-    //         const userStyle = prompt(`Enter css style property`);
-    //         const userCssStyleItem = new CssArrayItem(userStyleName, userStyle);
-    //         cssArray.push(userCssStyleItem);
-    //         question = confirm(`Do you want to enter enother style?`);
-    //     }
-    //     const userText = prompt(`Enter some text`);
-    //     function addString(arr, text) {
-    //         let string = '<p style=\"';
-    //         for (let i of arr) {
-    //             string += i.styleName + ': ' + i.style + ';';
-    //         }
-    //         string += '>' + text + '</p>';
-    //         document.write(string);
-    //     }
-    //     addString(cssArray, userText);
-    // });
-    
+    const btn_273 = document.getElementById('task_27.3');
+    btn_273.addEventListener('click', () => {
+        const cssArray = [];
+        function CssArrayItem(styleName, style) {
+        this.styleName = styleName;
+        this.style = style;
+        }
+        let question = true;
+        while (question) {
+            const userStyleName = prompt(`Enter css text style name`);
+            const userStyle = prompt(`Enter css style property`);
+            const userCssStyleItem = new CssArrayItem(userStyleName, userStyle);
+            cssArray.push(userCssStyleItem);
+            question = confirm(`Do you want to enter enother style?`);
+        }
+        const userText = prompt(`Enter some text`);
+        function addString(arr, text) {
+            let string = '<p style="';
+            for (let i of arr) {
+                string += i.styleName + ': ' + i.style + ';';
+            }
+            string += '">' + text + '</p>';
+            document.write(string);
+        }
+        addString(cssArray, userText);
+    });
+
+    //3. Academy audiences
+    const audiences = [];
+    audiences.push({ number: 101, seats: 10, faculty: 'Biology' });
+    audiences.push({ number: 102, seats: 15, faculty: 'Geology' });
+    audiences.push({ number: 103, seats: 20, faculty: 'Economics' });
+    audiences.push({ number: 104, seats: 12, faculty: 'History' });
+    audiences.push({ number: 105, seats: 18, faculty: 'Mathematics' });
+    audiences.push({ number: 106, seats: 10, faculty: 'Psuchology' });
+    audiences.push({ number: 107, seats: 15, faculty: 'Chemistry' });
+    audiences.push({ number: 108, seats: 13, faculty: 'Economics' });
+    audiences.push({ number: 109, seats: 10, faculty: 'History' });
+    audiences.push({ number: 110, seats: 10, faculty: 'Psuchology' });
+    const printAudience = (arr) => {
+        let audienceList = "";
+        for (let i of arr) {
+                audienceList += "audience " + i.number + ', ' + i.seats + ' seats, ' + i.faculty + ' Faculty' + '\n';
+            }
+            alert(`${audienceList}`);
+    }
+    const btn_2741 = document.getElementById('task_27.4.1');
+    btn_2741.addEventListener('click', () => {
+        printAudience(audiences);
+    });
+    const btn_2742 = document.getElementById('task_27.4.2');
+    btn_2742.addEventListener('click', () => {
+        const userFaculty = prompt(`Enter faculty you are serching`);
+        const facultyAudience = audiences.filter(item => item.faculty == userFaculty);
+        printAudience(facultyAudience);
+    });
+    const btn_2743 = document.getElementById('task_27.4.3');
+    btn_2743.addEventListener('click', () => {
+        const group = {};
+        const groupName = prompt(`Enter group name`);
+        const studentsNumber = +prompt(`Enter number of students in the group`);
+        const groupFaculty = prompt(`Enter the faculty of the group`);
+        group.name = groupName;
+        group.students = studentsNumber;
+        group.faculty = groupFaculty;
+        const groupAudience = audiences.filter(item => (item.faculty == group.faculty)&&(item.seats >= group.students));
+        printAudience(groupAudience);
+    });
+    const btn_2744 = document.getElementById('task_27.4.4');
+    btn_2744.addEventListener('click', () => {
+        audiences.sort((a, b) => a.seats - b.seats);
+        printAudience(audiences);
+    });
+    const btn_2745 = document.getElementById('task_27.4.5');
+    btn_2745.addEventListener('click', () => {
+        audiences.sort((a, b) => a.number - b.number);
+        printAudience(audiences);
+    });
 };
