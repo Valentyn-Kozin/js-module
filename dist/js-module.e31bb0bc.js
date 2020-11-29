@@ -1380,6 +1380,184 @@ var arrays = function arrays() {
 };
 
 exports.arrays = arrays;
+},{}],"js/classes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.classes = void 0;
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+//Lesson 28 Classes
+var classes = function classes() {
+  //1. Circle
+  var Circle = /*#__PURE__*/function () {
+    function Circle(radius) {
+      _classCallCheck(this, Circle);
+
+      this.radius = radius;
+    }
+
+    _createClass(Circle, [{
+      key: "circleArea",
+      value: function circleArea() {
+        return Math.PI * Math.pow(this.radius, 2);
+      }
+    }, {
+      key: "circleLength",
+      value: function circleLength() {
+        return 2 * Math.PI * this.radius;
+      }
+    }, {
+      key: "seeRadius",
+      get: function get() {
+        return this.radius;
+      }
+    }, {
+      key: "enterRadius",
+      set: function set(value) {
+        this.radis = value;
+      }
+    }, {
+      key: "diameter",
+      get: function get() {
+        return this.radius * 2;
+      }
+    }]);
+
+    return Circle;
+  }();
+
+  var btn_2811 = document.getElementById('task_28.1.1');
+  btn_2811.addEventListener('click', function () {
+    var userRadius = +prompt("Enter the circle radius");
+    var userCircle = new Circle(userRadius);
+    var btn_2812 = document.getElementById('task_28.1.2');
+    btn_2812.addEventListener('click', function () {
+      alert("You entered ".concat(userCircle.seeRadius));
+    });
+    var btn_2813 = document.getElementById('task_28.1.3');
+    btn_2813.addEventListener('click', function () {
+      alert("The circle diameter is ".concat(userCircle.diameter));
+    });
+    var btn_2814 = document.getElementById('task_28.1.4');
+    btn_2814.addEventListener('click', function () {
+      alert("The circle area is ".concat(userCircle.circleArea().toFixed(2)));
+    });
+    var btn_2815 = document.getElementById('task_28.1.5');
+    btn_2815.addEventListener('click', function () {
+      alert("The circle length is ".concat(userCircle.circleLength().toFixed(2)));
+    });
+  }); //2. Text marker
+
+  var Marker = /*#__PURE__*/function () {
+    function Marker(color, inkBalance) {
+      _classCallCheck(this, Marker);
+
+      this.color = color;
+      this.inkBalance = inkBalance;
+    }
+
+    _createClass(Marker, [{
+      key: "print",
+      value: function print(text) {
+        var textToPrint = "";
+        var textLength = this.inkBalance;
+
+        var _iterator = _createForOfIteratorHelper(text),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var i = _step.value;
+
+            if (textLength > 0) {
+              textToPrint += i;
+
+              if (i !== " ") {
+                textLength -= 0.5;
+              }
+            } else break;
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        return document.write("<span style=\"color: ".concat(this.color, ";\">").concat(textToPrint, "</span>"));
+      }
+    }]);
+
+    return Marker;
+  }();
+
+  var FillMarker = /*#__PURE__*/function (_Marker) {
+    _inherits(FillMarker, _Marker);
+
+    var _super = _createSuper(FillMarker);
+
+    function FillMarker() {
+      _classCallCheck(this, FillMarker);
+
+      return _super.apply(this, arguments);
+    }
+
+    _createClass(FillMarker, [{
+      key: "fill",
+      value: function fill() {
+        _get(_getPrototypeOf(FillMarker.prototype), "print", this).call(this, text);
+
+        this.inkBalance = 100;
+      }
+    }]);
+
+    return FillMarker;
+  }(Marker);
+
+  var btn_2821 = document.getElementById('task_28.2.1');
+  btn_2821.addEventListener('click', function () {
+    var userColor = prompt("Enter color");
+    var userText = prompt("Enter text");
+    var userInkBalance = +prompt("Enter the ink level of the marker (a number between 0 and 100)");
+    var userMarker = new FillMarker(userColor, userInkBalance);
+    userMarker.print(userText);
+  });
+};
+
+exports.classes = classes;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -1395,13 +1573,16 @@ var _objects = require("./js/objects");
 
 var _arrays = require("./js/arrays");
 
+var _classes = require("./js/classes");
+
 (0, _basics.basics)();
 (0, _datatypesoperators.dataTypesOperators)();
 (0, _loops.loops)();
 (0, _functions.functions)();
 (0, _objects.objects)();
 (0, _arrays.arrays)();
-},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _classes.classes)();
+},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js","./js/classes":"js/classes.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1429,7 +1610,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49978" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53854" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
