@@ -92,15 +92,45 @@ export const classes = () => {
         while (question) {
             const staffName = prompt(`Enter name`);
             const staffPosition = prompt(`Enter position`);
-            const staffExperience = prompt(`Enter experience`);
-            const staffRate = (`Enter rate`);
+            const staffExperience = prompt(`Enter experience in years`);
+            const staffRate = prompt(`Enter rate per month`);
             staffList.push(
                 new Employee(staffName, staffPosition, staffExperience, staffRate)
             );
             question = confirm(`Do you want to enter another employee?`);
         }
-        
-        
-
+        class EmpTable {
+            constructor(arr) {
+                this.arr = arr
+            }
+            getHtml() {
+                let table = document.createElement('table');
+                const thead = document.createElement('thead');
+                thead.innerHTML = `
+                <tr>
+                   <th>Name</th>
+                    <th>Position</th>
+                    <th>Experience</th>
+                    <th>Rate</th>
+                </tr>`;
+                table.prepend(thead);
+                let tbody = document.createElement('tbody');
+                table.append(tbody);
+                this.arr.forEach(i => {
+                    tbody.innerHTML += `
+                    <tr>
+                        <td>${i.name}</td>
+                        <td>${i.position}</td>
+                        <td>${i.experience}</td>
+                        <td>${i.rate}</td>
+                    </tr>
+                    `;
+                });
+                document.getElementById('task_283').after(table);
+            }
+        }
+        const staffTable = new EmpTable(staffList);
+        staffTable.getHtml();
+        console.log(staffTable);
     });
 };

@@ -37,10 +37,7 @@ ul {
   flex-wrap: wrap;
 }
 .homework__item {
-  margin-bottom: 40px;
-}
-.homework__item:not(:last-child) {
-  margin-right: 40px;
+  padding: 20px;
 }
 .homework__task {
   border: 1px solid #e4bd00;
@@ -70,8 +67,8 @@ ul {
   align-items: center;
   flex-wrap: wrap;
 }
-.homework__task-item:not(:last-child) {
-  margin-right: 40px;
+.homework__task-item {
+  padding: 10px 20px;
 }
 .homework__btn {
   min-height: 40px;

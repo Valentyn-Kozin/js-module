@@ -1570,11 +1570,41 @@ var classes = function classes() {
     while (question) {
       var staffName = prompt("Enter name");
       var staffPosition = prompt("Enter position");
-      var staffExperience = prompt("Enter experience");
-      var staffRate = "Enter rate";
+      var staffExperience = prompt("Enter experience in years");
+      var staffRate = prompt("Enter rate per month");
       staffList.push(new Employee(staffName, staffPosition, staffExperience, staffRate));
       question = confirm("Do you want to enter another employee?");
     }
+
+    var EmpTable = /*#__PURE__*/function () {
+      function EmpTable(arr) {
+        _classCallCheck(this, EmpTable);
+
+        this.arr = arr;
+      }
+
+      _createClass(EmpTable, [{
+        key: "getHtml",
+        value: function getHtml() {
+          var table = document.createElement('table');
+          var thead = document.createElement('thead');
+          thead.innerHTML = "\n                <tr>\n                   <th>Name</th>\n                    <th>Position</th>\n                    <th>Experience</th>\n                    <th>Rate</th>\n                </tr>";
+          table.prepend(thead);
+          var tbody = document.createElement('tbody');
+          table.append(tbody);
+          this.arr.forEach(function (i) {
+            tbody.innerHTML += "\n                    <tr>\n                        <td>".concat(i.name, "</td>\n                        <td>").concat(i.position, "</td>\n                        <td>").concat(i.experience, "</td>\n                        <td>").concat(i.rate, "</td>\n                    </tr>\n                    ");
+          });
+          document.getElementById('task_283').after(table);
+        }
+      }]);
+
+      return EmpTable;
+    }();
+
+    var staffTable = new EmpTable(staffList);
+    staffTable.getHtml();
+    console.log(staffTable);
   });
 };
 
@@ -1603,7 +1633,7 @@ var _classes = require("./js/classes");
 (0, _objects.objects)();
 (0, _arrays.arrays)();
 (0, _classes.classes)();
-},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js","./js/classes":"js/classes.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/basics":"js/basics.js","./js/datatypesoperators":"js/datatypesoperators.js","./js/loops":"js/loops.js","./js/functions":"js/functions.js","./js/objects":"js/objects.js","./js/arrays":"js/arrays.js","./js/classes":"js/classes.js"}],"C:/Users/kabanos/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1631,7 +1661,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62775" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52119" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1807,5 +1837,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["C:/Users/kabanos/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/js-module.e31bb0bc.js.map

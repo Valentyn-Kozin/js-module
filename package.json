@@ -15,5 +15,7 @@
   },
   "parcelCleanPaths": [
     "dist"
-  ]
+  ],
+  "repository": "https://github.com/Valentyn-Kozin/js-module.git",
+  "author": "Valentyn Kozin <valentyn.kozin@gmail.com>"
 }

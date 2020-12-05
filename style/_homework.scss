@@ -35,9 +35,7 @@ $style: "homework";
     @include flex(center, center, row, wrap);
   }
   &__task-item {
-    &:not(:last-child) {
-      margin-right: 40px;
-    }
+    padding: 10px 20px;
   }
   &__btn {
     min-height: 40px;
