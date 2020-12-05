@@ -69,12 +69,38 @@ export const classes = () => {
         }
     }
     const btn_2821 = document.getElementById('task_28.2.1');
-        btn_2821.addEventListener('click', () => {
-            const userColor = prompt(`Enter color`);
-            const userText = prompt(`Enter text`);
-            const userInkBalance = +prompt(`Enter the ink level of the marker (a number between 0 and 100)`);
-            const userMarker = new FillMarker(userColor, userInkBalance);
-            userMarker.print(userText);
+    btn_2821.addEventListener('click', () => {
+        const userColor = prompt(`Enter color`);
+        const userText = prompt(`Enter text`);
+        const userInkBalance = +prompt(`Enter the ink level of the marker (a number between 0 and 100)`);
+        const userMarker = new FillMarker(userColor, userInkBalance);
+        userMarker.print(userText);
+    });
+    //3. Bank staff
+    const btn_2831 = document.getElementById('task_28.3.1');
+    btn_2831.addEventListener('click', () => {
+        class Employee {
+            constructor(name, position, experience, rate) {
+                this.name = name,
+                this.position = position,
+                this.experience = experience,
+                this.rate = rate
+            }
+        }
+        const staffList = [];
+        let question = true;
+        while (question) {
+            const staffName = prompt(`Enter name`);
+            const staffPosition = prompt(`Enter position`);
+            const staffExperience = prompt(`Enter experience`);
+            const staffRate = (`Enter rate`);
+            staffList.push(
+                new Employee(staffName, staffPosition, staffExperience, staffRate)
+            );
+            question = confirm(`Do you want to enter another employee?`);
+        }
+        
+        
 
-        });
+    });
 };

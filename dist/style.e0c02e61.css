@@ -36,6 +36,9 @@ ul {
   align-items: center;
   flex-wrap: wrap;
 }
+.homework__item {
+  margin-bottom: 40px;
+}
 .homework__item:not(:last-child) {
   margin-right: 40px;
 }
@@ -59,6 +62,16 @@ ul {
   color: black;
   text-align: center;
   margin-bottom: 12px;
+}
+.homework__task-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.homework__task-item:not(:last-child) {
+  margin-right: 40px;
 }
 .homework__btn {
   min-height: 40px;

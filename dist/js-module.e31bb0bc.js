@@ -1554,6 +1554,27 @@ var classes = function classes() {
     var userInkBalance = +prompt("Enter the ink level of the marker (a number between 0 and 100)");
     var userMarker = new FillMarker(userColor, userInkBalance);
     userMarker.print(userText);
+  }); //3. Bank staff
+
+  var btn_2831 = document.getElementById('task_28.3.1');
+  btn_2831.addEventListener('click', function () {
+    var Employee = function Employee(name, position, experience, rate) {
+      _classCallCheck(this, Employee);
+
+      this.name = name, this.position = position, this.experience = experience, this.rate = rate;
+    };
+
+    var staffList = [];
+    var question = true;
+
+    while (question) {
+      var staffName = prompt("Enter name");
+      var staffPosition = prompt("Enter position");
+      var staffExperience = prompt("Enter experience");
+      var staffRate = "Enter rate";
+      staffList.push(new Employee(staffName, staffPosition, staffExperience, staffRate));
+      question = confirm("Do you want to enter another employee?");
+    }
   });
 };
 
@@ -1610,7 +1631,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53854" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62775" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
